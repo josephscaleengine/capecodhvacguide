@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Thermometer } from "lucide-react";
 
 const Footer = () => {
@@ -5,8 +6,7 @@ const Footer = () => {
     <footer id="about" className="py-12 bg-card border-t border-border">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          {/* Logo */}
-          <div className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
               <Thermometer className="w-6 h-6 text-primary-foreground" />
             </div>
@@ -14,19 +14,18 @@ const Footer = () => {
               <span className="font-bold text-foreground">Cape Cod</span>
               <span className="text-xs text-muted-foreground">HVAC Guide</span>
             </div>
-          </div>
+          </Link>
 
-          {/* Links */}
           <nav className="flex flex-wrap justify-center gap-6">
-            <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Home
-            </a>
-            <a href="#towns" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            </Link>
+            <Link to="/towns" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Towns
-            </a>
-            <a href="#resources" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            </Link>
+            <Link to="/blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Resources
-            </a>
+            </Link>
             <a
               href="https://bluepacificcapecod.com/plumbing-falmouth-ma/"
               target="_blank"
@@ -37,7 +36,6 @@ const Footer = () => {
             </a>
           </nav>
 
-          {/* Copyright */}
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} Cape Cod HVAC Guide
           </p>
