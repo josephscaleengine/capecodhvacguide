@@ -1,5 +1,5 @@
 import { useParams, Link, Navigate } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight, Clock } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getCategoryBySlug, getArticlesByCategory, categories } from "@/data/articles";
@@ -16,100 +16,123 @@ const Category = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="pt-24 pb-16">
-        <div className="container mx-auto px-4">
-          {/* Header */}
-          <div className="mb-12">
+      <main>
+        {/* Hero Section */}
+        <section className="relative pt-32 pb-16 overflow-hidden">
+          {/* Background gradient */}
+          <div className="absolute inset-0 bg-gradient-to-b from-secondary via-secondary/50 to-background" />
+          <div className="absolute inset-0 opacity-20">
+            <div className="absolute top-20 left-20 w-64 h-64 rounded-full bg-primary/20 blur-3xl" />
+            <div className="absolute bottom-10 right-20 w-80 h-80 rounded-full bg-accent/10 blur-3xl" />
+          </div>
+          
+          <div className="container mx-auto px-4 relative z-10">
+            {/* Breadcrumb */}
             <Link
               to="/blog"
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground mb-6 text-sm"
+              className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground mb-6 text-sm transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               All Resources
             </Link>
-            <div className="flex items-center gap-4 mb-4">
-              <span className="text-5xl">{category.emoji}</span>
+
+            <div className="flex items-center gap-4">
+              <span className="text-6xl">{category.emoji}</span>
               <div>
-                <h1 className="text-4xl md:text-5xl font-bold text-foreground">
+                <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-2">
                   {category.name}
                 </h1>
-                <p className="text-lg text-muted-foreground mt-2">
+                <p className="text-lg text-muted-foreground">
                   {category.description}
                 </p>
               </div>
             </div>
           </div>
+        </section>
 
-          {/* Articles */}
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
-            {categoryArticles.map((article) => (
-              <Link
-                key={article.slug}
-                to={`/blog/${article.slug}`}
-                className="group block p-6 rounded-xl bg-card border border-border shadow-sm hover:shadow-lg hover:border-primary/30 transition-all duration-300"
-              >
-                {/* Category Badge */}
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="text-xl">{article.emoji}</span>
-                  <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
-                    {article.category}
-                  </span>
-                </div>
+        {/* Articles */}
+        <section className="py-16 bg-background">
+          <div className="container mx-auto px-4">
+            {categoryArticles.length > 0 ? (
+              <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+                {categoryArticles.map((article) => (
+                  <Link
+                    key={article.slug}
+                    to={`/blog/${article.slug}`}
+                    className="group flex flex-col p-6 rounded-xl bg-card border border-border shadow-sm hover:shadow-lg hover:border-primary/30 transition-all duration-300"
+                  >
+                    {/* Header */}
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xl">{article.emoji}</span>
+                        <span className="text-sm font-medium text-primary">
+                          {article.category}
+                        </span>
+                      </div>
+                      {article.tag && (
+                        <span className="text-xs px-2 py-1 rounded-full bg-accent text-accent-foreground font-medium">
+                          Featured
+                        </span>
+                      )}
+                    </div>
 
-                {/* Title */}
-                <h2 className="font-bold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">
-                  {article.title}
-                </h2>
+                    {/* Title */}
+                    <h2 className="font-bold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">
+                      {article.title}
+                    </h2>
 
-                {/* Description */}
-                <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
-                  {article.description}
+                    {/* Description */}
+                    <p className="text-sm text-muted-foreground mb-4 line-clamp-3 flex-grow">
+                      {article.description}
+                    </p>
+
+                    {/* Footer */}
+                    <div className="flex items-center justify-between pt-4 border-t border-border">
+                      <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                        <Clock className="w-4 h-4" />
+                        {article.readTime}
+                      </div>
+                      <span className="text-primary text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Read More <ArrowRight className="w-4 h-4" />
+                      </span>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-12 bg-card rounded-xl border border-border max-w-2xl mx-auto">
+                <p className="text-muted-foreground">
+                  No articles found in this category yet. Check back soon!
                 </p>
-
-                {/* Footer */}
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-muted-foreground">{article.readTime}</span>
-                  {article.tag && (
-                    <span className="text-xs px-2 py-1 rounded-full bg-secondary text-secondary-foreground">
-                      {article.tag}
-                    </span>
-                  )}
-                </div>
-              </Link>
-            ))}
+              </div>
+            )}
           </div>
+        </section>
 
-          {categoryArticles.length === 0 && (
-            <div className="text-center py-12">
-              <p className="text-muted-foreground">
-                No articles found in this category yet. Check back soon!
-              </p>
-            </div>
-          )}
-
-          {/* Other Categories */}
-          <section className="border-t border-border pt-12">
-            <h2 className="text-xl font-bold text-foreground mb-6">
+        {/* Other Categories */}
+        <section className="py-16 bg-muted/30 border-t border-border">
+          <div className="container mx-auto px-4">
+            <h2 className="text-2xl font-bold text-foreground mb-8 text-center">
               Browse Other Topics
             </h2>
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
               {categories
                 .filter((c) => c.slug !== category.slug)
                 .map((cat) => (
                   <Link
                     key={cat.slug}
                     to={`/blog/category/${cat.slug}`}
-                    className="flex flex-col items-center p-4 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all"
+                    className="flex flex-col items-center p-6 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all"
                   >
-                    <span className="text-3xl mb-2">{cat.emoji}</span>
-                    <span className="font-medium text-foreground text-sm text-center">
+                    <span className="text-4xl mb-3">{cat.emoji}</span>
+                    <span className="font-medium text-foreground text-center">
                       {cat.name}
                     </span>
                   </Link>
                 ))}
             </div>
-          </section>
-        </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </div>
