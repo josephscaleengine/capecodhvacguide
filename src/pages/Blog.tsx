@@ -42,15 +42,15 @@ const Blog = () => {
         </section>
 
         {/* Category Filter */}
-        <section className="py-8 bg-muted/30 border-y border-border">
+        <section className="py-10 bg-muted/30 border-y border-border">
           <div className="container mx-auto px-4">
-            <div className="flex flex-wrap justify-center gap-3">
+            <div className="flex flex-wrap justify-center gap-4">
               <button
                 onClick={() => setActiveCategory(null)}
-                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-medium transition-all ${
                   activeCategory === null
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-card border border-border text-muted-foreground hover:text-foreground hover:border-primary/30"
+                    ? "bg-primary text-primary-foreground shadow-md"
+                    : "bg-card border border-border text-muted-foreground hover:text-foreground hover:border-primary/30 hover:shadow-sm"
                 }`}
               >
                 All Articles
@@ -59,13 +59,13 @@ const Blog = () => {
                 <button
                   key={category.slug}
                   onClick={() => setActiveCategory(category.slug)}
-                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  className={`inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full font-medium transition-all ${
                     activeCategory === category.slug
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-card border border-border text-muted-foreground hover:text-foreground hover:border-primary/30"
+                      ? "bg-primary text-primary-foreground shadow-md"
+                      : "bg-card border border-border text-muted-foreground hover:text-foreground hover:border-primary/30 hover:shadow-sm"
                   }`}
                 >
-                  <span>{category.emoji}</span>
+                  <span className="text-lg">{category.emoji}</span>
                   <span>{category.name}</span>
                 </button>
               ))}
@@ -74,51 +74,51 @@ const Blog = () => {
         </section>
 
         {/* Articles Grid */}
-        <section className="py-16 bg-background">
+        <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredArticles.map((article) => (
                 <Link
                   key={article.slug}
                   to={`/blog/${article.slug}`}
-                  className="group flex flex-col p-6 rounded-xl bg-card border border-border shadow-sm hover:shadow-lg hover:border-primary/30 transition-all duration-300"
+                  className="group flex flex-col p-7 rounded-2xl bg-card border border-border shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300"
                 >
                   {/* Header */}
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-2">
-                      <span className="text-xl">{article.emoji}</span>
-                      <span className="text-sm font-medium text-primary">
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="flex items-center gap-2.5">
+                      <span className="text-2xl">{article.emoji}</span>
+                      <span className="text-sm font-medium text-primary uppercase tracking-wide">
                         {article.category}
                       </span>
                     </div>
                     {article.tag && (
-                      <span className="text-xs px-2 py-1 rounded-full bg-accent text-accent-foreground font-medium">
+                      <span className="text-xs px-3 py-1.5 rounded-full bg-accent text-accent-foreground font-semibold">
                         Featured
                       </span>
                     )}
                   </div>
 
                   {/* Title */}
-                  <h2 className="font-bold text-lg text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                  <h2 className="font-bold text-lg md:text-xl text-foreground mb-3 group-hover:text-primary transition-colors line-clamp-2 leading-snug">
                     {article.title}
                   </h2>
 
                   {/* Description */}
-                  <p className="text-sm text-muted-foreground mb-4 line-clamp-3 flex-grow">
+                  <p className="text-muted-foreground mb-6 line-clamp-3 flex-grow leading-relaxed">
                     {article.description}
                   </p>
 
                   {/* Footer */}
-                  <div className="flex items-center justify-between pt-4 border-t border-border">
-                    <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                      <div className="flex items-center gap-1">
+                  <div className="flex items-center justify-between pt-5 border-t border-border">
+                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                      <div className="flex items-center gap-1.5">
                         <Clock className="w-4 h-4" />
-                        {article.readTime}
+                        <span>{article.readTime}</span>
                       </div>
                       {article.tag && (
-                        <div className="flex items-center gap-1">
+                        <div className="flex items-center gap-1.5">
                           <MapPin className="w-4 h-4" />
-                          {article.tag}
+                          <span>{article.tag}</span>
                         </div>
                       )}
                     </div>

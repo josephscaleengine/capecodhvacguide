@@ -34,13 +34,13 @@ const About = () => {
         </section>
 
         {/* Mission Section */}
-        <section className="py-16 bg-background">
+        <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-16 items-start max-w-6xl mx-auto">
               {/* Left - Mission Text */}
               <div>
-                <h2 className="text-3xl font-bold text-foreground mb-6">Our Mission</h2>
-                <div className="space-y-4 text-muted-foreground">
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8">Our Mission</h2>
+                <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
                   <p>
                     Cape Cod presents unique challenges for homeowners—from historic properties 
                     with aging HVAC systems to coastal homes affected by salt air and harsh winters. 
@@ -55,37 +55,37 @@ const About = () => {
               </div>
 
               {/* Right - Value Cards */}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="p-6 rounded-xl bg-card border border-border text-center">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <MapPin className="w-6 h-6 text-primary" />
+              <div className="grid grid-cols-2 gap-6">
+                <div className="p-8 rounded-2xl bg-card border border-border text-center hover:shadow-lg hover:border-primary/30 transition-all">
+                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5">
+                    <MapPin className="w-7 h-7 text-primary" />
                   </div>
-                  <h3 className="font-bold text-foreground mb-1">Local Focus</h3>
-                  <p className="text-sm text-muted-foreground">Cape Cod-specific content</p>
+                  <h3 className="font-bold text-lg text-foreground mb-2">Local Focus</h3>
+                  <p className="text-muted-foreground">Cape Cod-specific content</p>
                 </div>
                 
-                <div className="p-6 rounded-xl bg-card border border-border text-center">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <BookOpen className="w-6 h-6 text-primary" />
+                <div className="p-8 rounded-2xl bg-card border border-border text-center hover:shadow-lg hover:border-primary/30 transition-all">
+                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5">
+                    <BookOpen className="w-7 h-7 text-primary" />
                   </div>
-                  <h3 className="font-bold text-foreground mb-1">Educational</h3>
-                  <p className="text-sm text-muted-foreground">Not salesy or pushy</p>
+                  <h3 className="font-bold text-lg text-foreground mb-2">Educational</h3>
+                  <p className="text-muted-foreground">Not salesy or pushy</p>
                 </div>
                 
-                <div className="p-6 rounded-xl bg-card border border-border text-center">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <Shield className="w-6 h-6 text-primary" />
+                <div className="p-8 rounded-2xl bg-card border border-border text-center hover:shadow-lg hover:border-primary/30 transition-all">
+                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5">
+                    <Shield className="w-7 h-7 text-primary" />
                   </div>
-                  <h3 className="font-bold text-foreground mb-1">Trusted</h3>
-                  <p className="text-sm text-muted-foreground">Backed by local pros</p>
+                  <h3 className="font-bold text-lg text-foreground mb-2">Trusted</h3>
+                  <p className="text-muted-foreground">Backed by local pros</p>
                 </div>
                 
-                <div className="p-6 rounded-xl bg-card border border-border text-center">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                    <Heart className="w-6 h-6 text-primary" />
+                <div className="p-8 rounded-2xl bg-card border border-border text-center hover:shadow-lg hover:border-primary/30 transition-all">
+                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-5">
+                    <Heart className="w-7 h-7 text-primary" />
                   </div>
-                  <h3 className="font-bold text-foreground mb-1">Free</h3>
-                  <p className="text-sm text-muted-foreground">Always accessible</p>
+                  <h3 className="font-bold text-lg text-foreground mb-2">Free</h3>
+                  <p className="text-muted-foreground">Always accessible</p>
                 </div>
               </div>
             </div>
@@ -143,17 +143,17 @@ const About = () => {
         </section>
 
         {/* Explore Resources */}
-        <section className="py-16 bg-background">
+        <section className="py-20 bg-background">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-2xl font-bold text-foreground mb-4">Explore Our Resources</h2>
-            <p className="text-muted-foreground mb-8 max-w-lg mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-5">Explore Our Resources</h2>
+            <p className="text-muted-foreground mb-10 max-w-lg mx-auto text-lg leading-relaxed">
               Browse our library of Cape Cod-specific HVAC guides, tips, and maintenance advice.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg">
+            <div className="flex flex-col sm:flex-row gap-5 justify-center">
+              <Button asChild size="lg" className="px-8 font-semibold">
                 <Link to="/blog">Browse Resources</Link>
               </Button>
-              <Button asChild variant="outline" size="lg">
+              <Button asChild variant="outline" size="lg" className="px-8 font-semibold">
                 <Link to="/towns">Find Your Town</Link>
               </Button>
             </div>

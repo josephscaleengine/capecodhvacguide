@@ -25,7 +25,7 @@ const TownDetail = () => {
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="relative pt-24 pb-16 min-h-[400px] flex items-end overflow-hidden">
+        <section className="relative pt-32 pb-20 min-h-[450px] flex items-end overflow-hidden">
           {/* Background Image */}
           <img
             src={town.image}
@@ -34,80 +34,78 @@ const TownDetail = () => {
           />
           
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/60 to-primary/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-primary/30" />
           
           {/* Content */}
-          <div className="container mx-auto px-4 relative z-10 pb-8">
-            <div className="flex items-center gap-2 mb-3">
-              <MapPin className="w-5 h-5 text-primary-foreground/80" />
-              <span className="text-primary-foreground/80">Cape Cod, Massachusetts</span>
+          <div className="container mx-auto px-4 relative z-10 pb-10">
+            <div className="flex items-center gap-2 mb-4">
+              <MapPin className="w-5 h-5 text-primary-foreground/90" />
+              <span className="text-primary-foreground/90 text-sm font-medium">Cape Cod, Massachusetts</span>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-5 leading-tight">
               {town.name} HVAC Guide
             </h1>
-            <p className="text-lg text-primary-foreground/80 max-w-2xl">
+            <p className="text-lg md:text-xl text-primary-foreground/90 max-w-2xl leading-relaxed">
               {town.description}
             </p>
           </div>
         </section>
 
         {/* Main Content */}
-        <section className="py-16 bg-background">
+        <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-3 gap-10">
+            <div className="grid lg:grid-cols-3 gap-12">
               {/* Left Column - Articles */}
               <div className="lg:col-span-2">
-                <h2 className="text-2xl font-bold text-foreground mb-8">
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">
                   Resources for {town.name} Homeowners
                 </h2>
                 
-                <div className="space-y-4">
+                <div className="space-y-5">
                   {displayArticles.map((article) => (
                     <Link
                       key={article.slug}
                       to={`/blog/${article.slug}`}
-                      className="group flex items-start justify-between p-6 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+                      className="group flex flex-col p-6 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300"
                     >
-                      <div className="flex-1">
-                        {/* Category */}
-                        <div className="flex items-center gap-2 mb-3">
-                          <span className="text-lg">{article.emoji}</span>
-                          <span className="text-sm font-medium text-primary">
-                            {article.category}
-                          </span>
+                      {/* Category */}
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="text-xl">{article.emoji}</span>
+                        <span className="text-sm font-medium text-primary uppercase tracking-wide">
+                          {article.category}
+                        </span>
+                      </div>
+                      
+                      {/* Title */}
+                      <h3 className="font-bold text-lg md:text-xl text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">
+                        {article.title}
+                      </h3>
+                      
+                      {/* Description */}
+                      <p className="text-muted-foreground mb-5 line-clamp-2 leading-relaxed">
+                        {article.description}
+                      </p>
+                      
+                      {/* Meta */}
+                      <div className="flex items-center justify-between pt-4 border-t border-border">
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <Clock className="w-4 h-4" />
+                          <span>{article.readTime}</span>
                         </div>
-                        
-                        {/* Title */}
-                        <h3 className="font-bold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">
-                          {article.title}
-                        </h3>
-                        
-                        {/* Description */}
-                        <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
-                          {article.description}
-                        </p>
-                        
-                        {/* Meta */}
-                        <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                          <div className="flex items-center gap-1">
-                            <Clock className="w-4 h-4" />
-                            {article.readTime}
-                          </div>
-                          <span className="text-primary font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
-                            Read More <ArrowRight className="w-4 h-4" />
-                          </span>
-                        </div>
+                        <span className="text-primary font-medium text-sm flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
+                          Read More <ArrowRight className="w-4 h-4" />
+                        </span>
                       </div>
                     </Link>
                   ))}
                 </div>
 
                 {displayArticles.length === 0 && (
-                  <div className="text-center py-12 bg-card rounded-xl border border-border">
-                    <p className="text-muted-foreground">
+                  <div className="text-center py-16 bg-card rounded-xl border border-border">
+                    <p className="text-muted-foreground mb-4">
                       No articles specifically for {town.name} yet. Check out our general resources!
                     </p>
-                    <Link to="/blog" className="text-primary hover:underline mt-2 inline-block">
+                    <Link to="/blog" className="text-primary font-medium hover:underline">
                       Browse All Resources →
                     </Link>
                   </div>
@@ -115,18 +113,19 @@ const TownDetail = () => {
               </div>
 
               {/* Right Column - Sidebar */}
-              <div className="space-y-6">
+              <div className="space-y-8">
                 {/* CTA Card */}
-                <div className="p-6 rounded-xl bg-primary text-primary-foreground">
-                  <h3 className="font-bold text-lg mb-3">
+                <div className="p-8 rounded-2xl bg-primary text-primary-foreground">
+                  <h3 className="font-bold text-xl mb-4">
                     Need HVAC Service in {town.name}?
                   </h3>
-                  <p className="text-sm text-primary-foreground/80 mb-4">
+                  <p className="text-primary-foreground/90 mb-6 leading-relaxed">
                     For professional HVAC services in {town.name} and throughout Cape Cod, 
                     Blue Pacific Cape Cod is here to help.
                   </p>
                   <Button
-                    className="w-full bg-card text-primary hover:bg-card/90"
+                    className="w-full bg-accent text-accent-foreground hover:bg-accent/90 font-semibold"
+                    size="lg"
                     asChild
                   >
                     <a
@@ -144,21 +143,21 @@ const TownDetail = () => {
                 </div>
 
                 {/* Other Towns */}
-                <div className="p-6 rounded-xl bg-card border border-border">
-                  <h3 className="font-bold text-lg text-foreground mb-4">
+                <div className="p-8 rounded-2xl bg-card border border-border">
+                  <h3 className="font-bold text-xl text-foreground mb-6">
                     Other Towns
                   </h3>
-                  <div className="space-y-3">
+                  <div className="space-y-4">
                     {towns
                       .filter((t) => t.slug !== town.slug)
                       .map((t) => (
                         <Link
                           key={t.slug}
                           to={`/towns/${t.slug}`}
-                          className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors py-1"
+                          className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors py-2 border-b border-border/50 last:border-0"
                         >
-                          <MapPin className="w-4 h-4 text-primary" />
-                          <span>{t.name}</span>
+                          <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
+                          <span className="font-medium">{t.name}</span>
                         </Link>
                       ))}
                   </div>
