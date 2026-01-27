@@ -51,48 +51,48 @@ const Category = () => {
         </section>
 
         {/* Articles */}
-        <section className="py-16 bg-background">
+        <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
             {categoryArticles.length > 0 ? (
-              <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 {categoryArticles.map((article) => (
                   <Link
                     key={article.slug}
                     to={`/blog/${article.slug}`}
-                    className="group flex flex-col p-6 rounded-xl bg-card border border-border shadow-sm hover:shadow-lg hover:border-primary/30 transition-all duration-300"
+                    className="group flex flex-col p-7 rounded-2xl bg-card border border-border shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300"
                   >
                     {/* Header */}
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-2">
-                        <span className="text-xl">{article.emoji}</span>
-                        <span className="text-sm font-medium text-primary">
+                    <div className="flex items-center justify-between mb-5">
+                      <div className="flex items-center gap-2.5">
+                        <span className="text-2xl">{article.emoji}</span>
+                        <span className="text-sm font-medium text-primary uppercase tracking-wide">
                           {article.category}
                         </span>
                       </div>
                       {article.tag && (
-                        <span className="text-xs px-2 py-1 rounded-full bg-accent text-accent-foreground font-medium">
+                        <span className="text-xs px-3 py-1.5 rounded-full bg-accent text-accent-foreground font-semibold">
                           Featured
                         </span>
                       )}
                     </div>
 
                     {/* Title */}
-                    <h2 className="font-bold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">
+                    <h2 className="font-bold text-lg md:text-xl text-foreground mb-3 group-hover:text-primary transition-colors leading-snug">
                       {article.title}
                     </h2>
 
                     {/* Description */}
-                    <p className="text-sm text-muted-foreground mb-4 line-clamp-3 flex-grow">
+                    <p className="text-muted-foreground mb-6 line-clamp-3 flex-grow leading-relaxed">
                       {article.description}
                     </p>
 
                     {/* Footer */}
-                    <div className="flex items-center justify-between pt-4 border-t border-border">
-                      <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                    <div className="flex items-center justify-between pt-5 border-t border-border">
+                      <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
                         <Clock className="w-4 h-4" />
-                        {article.readTime}
+                        <span>{article.readTime}</span>
                       </div>
-                      <span className="text-primary text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                      <span className="text-primary font-medium text-sm flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
                         Read More <ArrowRight className="w-4 h-4" />
                       </span>
                     </div>
@@ -110,22 +110,22 @@ const Category = () => {
         </section>
 
         {/* Other Categories */}
-        <section className="py-16 bg-muted/30 border-t border-border">
+        <section className="py-20 bg-muted/30 border-t border-border">
           <div className="container mx-auto px-4">
-            <h2 className="text-2xl font-bold text-foreground mb-8 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-10 text-center">
               Browse Other Topics
             </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
               {categories
                 .filter((c) => c.slug !== category.slug)
                 .map((cat) => (
                   <Link
                     key={cat.slug}
                     to={`/blog/category/${cat.slug}`}
-                    className="flex flex-col items-center p-6 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all"
+                    className="flex flex-col items-center p-8 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-xl transition-all"
                   >
-                    <span className="text-4xl mb-3">{cat.emoji}</span>
-                    <span className="font-medium text-foreground text-center">
+                    <span className="text-5xl mb-4">{cat.emoji}</span>
+                    <span className="font-semibold text-foreground text-center">
                       {cat.name}
                     </span>
                   </Link>

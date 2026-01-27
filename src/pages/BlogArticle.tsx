@@ -89,22 +89,33 @@ const BlogArticle = () => {
         </section>
 
         {/* Article Content */}
-        <section className="py-16 bg-background">
+        <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <article className="prose prose-lg max-w-none prose-headings:text-foreground prose-headings:font-bold prose-p:text-muted-foreground prose-strong:text-foreground prose-li:text-muted-foreground prose-a:text-primary prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3 prose-ul:my-4 prose-li:my-1">
+            <div className="max-w-3xl mx-auto">
+              <article className="prose prose-lg max-w-none 
+                prose-headings:text-foreground prose-headings:font-bold prose-headings:leading-tight
+                prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:border-b prose-h2:border-border prose-h2:pb-4
+                prose-h3:text-xl prose-h3:md:text-2xl prose-h3:mt-10 prose-h3:mb-4
+                prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-6
+                prose-strong:text-foreground prose-strong:font-semibold
+                prose-li:text-muted-foreground prose-li:leading-relaxed prose-li:my-2
+                prose-ul:my-6 prose-ul:space-y-2
+                prose-ol:my-6 prose-ol:space-y-2
+                prose-a:text-primary prose-a:font-medium prose-a:no-underline hover:prose-a:underline
+                prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-muted-foreground
+              ">
                 <ReactMarkdown>{article.content}</ReactMarkdown>
               </article>
 
               {/* CTA Section */}
-              <div className="mt-16 p-8 rounded-2xl bg-primary text-primary-foreground text-center">
-                <h2 className="text-2xl md:text-3xl font-bold mb-3">Need Professional HVAC Help?</h2>
-                <p className="text-primary-foreground/80 mb-6 max-w-lg mx-auto">
+              <div className="mt-16 p-10 md:p-12 rounded-2xl bg-primary text-primary-foreground text-center">
+                <h2 className="text-2xl md:text-3xl font-bold mb-4">Need Professional HVAC Help?</h2>
+                <p className="text-primary-foreground/90 mb-8 max-w-xl mx-auto text-lg leading-relaxed">
                   Blue Pacific Cape Cod offers trusted HVAC and heating services throughout Cape Cod.
                 </p>
                 <Button
                   size="lg"
-                  className="bg-accent hover:bg-accent/90 text-accent-foreground"
+                  className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-8"
                   asChild
                 >
                   <a
@@ -119,27 +130,27 @@ const BlogArticle = () => {
 
               {/* Related Articles */}
               {relatedArticles.length > 0 && (
-                <section className="mt-16 pt-12 border-t border-border">
-                  <h2 className="text-2xl font-bold text-foreground mb-8">
+                <section className="mt-20 pt-12 border-t border-border">
+                  <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-10">
                     Related Resources
                   </h2>
-                  <div className="grid md:grid-cols-3 gap-6">
+                  <div className="grid md:grid-cols-3 gap-8">
                     {relatedArticles.map((related) => (
                       <Link
                         key={related.slug}
                         to={`/blog/${related.slug}`}
-                        className="group block p-5 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all"
+                        className="group block p-6 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all"
                       >
-                        <div className="flex items-center gap-2 mb-3">
-                          <span className="text-xl">{related.emoji}</span>
-                          <span className="text-xs text-muted-foreground">
+                        <div className="flex items-center gap-2 mb-4">
+                          <span className="text-2xl">{related.emoji}</span>
+                          <span className="text-sm text-muted-foreground">
                             {related.readTime}
                           </span>
                         </div>
-                        <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-2">
+                        <h3 className="font-bold text-lg text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-4 leading-snug">
                           {related.title}
                         </h3>
-                        <span className="text-primary text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                        <span className="text-primary font-medium text-sm flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
                           Read More <ArrowRight className="w-4 h-4" />
                         </span>
                       </Link>
@@ -149,19 +160,19 @@ const BlogArticle = () => {
               )}
 
               {/* Browse Categories */}
-              <section className="mt-12 pt-8 border-t border-border">
-                <h2 className="text-xl font-bold text-foreground mb-6">
+              <section className="mt-16 pt-10 border-t border-border">
+                <h2 className="text-xl md:text-2xl font-bold text-foreground mb-8">
                   Browse by Topic
                 </h2>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-4">
                   {categories.map((category) => (
                     <Link
                       key={category.slug}
                       to={`/blog/category/${category.slug}`}
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border text-muted-foreground hover:text-foreground hover:border-primary/30 transition-colors"
+                      className="inline-flex items-center gap-2.5 px-5 py-3 rounded-full bg-card border border-border text-muted-foreground hover:text-foreground hover:border-primary/30 hover:shadow-md transition-all"
                     >
-                      <span>{category.emoji}</span>
-                      <span className="text-sm font-medium">{category.name}</span>
+                      <span className="text-lg">{category.emoji}</span>
+                      <span className="font-medium">{category.name}</span>
                     </Link>
                   ))}
                 </div>

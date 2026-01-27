@@ -35,14 +35,14 @@ const Towns = () => {
         </section>
 
         {/* Towns Grid */}
-        <section className="py-16 bg-background">
+        <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {towns.map((town) => (
                 <Link
                   key={town.slug}
                   to={`/towns/${town.slug}`}
-                  className="group relative block rounded-xl overflow-hidden h-64 shadow-md hover:shadow-xl transition-all duration-300"
+                  className="group relative block rounded-2xl overflow-hidden h-72 shadow-lg hover:shadow-2xl transition-all duration-300"
                 >
                   {/* Background Image */}
                   <img
@@ -52,20 +52,20 @@ const Towns = () => {
                   />
                   
                   {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent" />
                   
                   {/* Content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <div className="flex items-center gap-2 mb-2">
-                      <MapPin className="w-4 h-4 text-primary-foreground/80" />
-                      <span className="text-primary-foreground/80 text-sm">
+                  <div className="absolute bottom-0 left-0 right-0 p-8">
+                    <div className="flex items-center gap-2 mb-3">
+                      <MapPin className="w-4 h-4 text-primary-foreground/90" />
+                      <span className="text-primary-foreground/90 text-sm font-medium">
                         {town.articleCount} {town.articleCount === 1 ? "article" : "articles"}
                       </span>
                     </div>
-                    <h2 className="font-bold text-2xl text-primary-foreground mb-1">
+                    <h2 className="font-bold text-2xl md:text-3xl text-primary-foreground mb-2">
                       {town.name}
                     </h2>
-                    <p className="text-sm text-primary-foreground/80 line-clamp-2">
+                    <p className="text-primary-foreground/90 line-clamp-2 leading-relaxed">
                       {town.description}
                     </p>
                   </div>
