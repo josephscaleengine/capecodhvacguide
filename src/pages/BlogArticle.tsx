@@ -92,19 +92,63 @@ const BlogArticle = () => {
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto">
-              <article className="prose prose-lg max-w-none 
-                prose-headings:text-foreground prose-headings:font-bold prose-headings:leading-tight
-                prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:border-b prose-h2:border-border prose-h2:pb-4
-                prose-h3:text-xl prose-h3:md:text-2xl prose-h3:mt-10 prose-h3:mb-4
-                prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-6
-                prose-strong:text-foreground prose-strong:font-semibold
-                prose-li:text-muted-foreground prose-li:leading-relaxed prose-li:my-2
-                prose-ul:my-6 prose-ul:space-y-2
-                prose-ol:my-6 prose-ol:space-y-2
-                prose-a:text-primary prose-a:font-medium prose-a:no-underline hover:prose-a:underline
-                prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-muted-foreground
-              ">
-                <ReactMarkdown>{article.content}</ReactMarkdown>
+              <article className="article-content">
+                <ReactMarkdown
+                  components={{
+                    h2: ({ children }) => (
+                      <h2 className="text-2xl md:text-3xl font-bold text-foreground mt-12 mb-6 pb-4 border-b border-border leading-tight">
+                        {children}
+                      </h2>
+                    ),
+                    h3: ({ children }) => (
+                      <h3 className="text-xl md:text-2xl font-semibold text-foreground mt-10 mb-4 leading-tight">
+                        {children}
+                      </h3>
+                    ),
+                    p: ({ children }) => (
+                      <p className="text-muted-foreground leading-relaxed mb-6 text-base md:text-lg">
+                        {children}
+                      </p>
+                    ),
+                    strong: ({ children }) => (
+                      <strong className="text-foreground font-semibold block mt-6 mb-2">
+                        {children}
+                      </strong>
+                    ),
+                    ul: ({ children }) => (
+                      <ul className="my-4 ml-6 space-y-3 list-disc marker:text-primary">
+                        {children}
+                      </ul>
+                    ),
+                    ol: ({ children }) => (
+                      <ol className="my-4 ml-6 space-y-3 list-decimal marker:text-primary marker:font-semibold">
+                        {children}
+                      </ol>
+                    ),
+                    li: ({ children }) => (
+                      <li className="text-muted-foreground leading-relaxed text-base md:text-lg pl-2">
+                        {children}
+                      </li>
+                    ),
+                    a: ({ href, children }) => (
+                      <a
+                        href={href}
+                        className="text-primary font-medium hover:underline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {children}
+                      </a>
+                    ),
+                    blockquote: ({ children }) => (
+                      <blockquote className="border-l-4 border-primary pl-6 my-8 italic text-muted-foreground">
+                        {children}
+                      </blockquote>
+                    ),
+                  }}
+                >
+                  {article.content}
+                </ReactMarkdown>
               </article>
 
               {/* CTA Section */}
