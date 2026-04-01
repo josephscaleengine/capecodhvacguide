@@ -127,26 +127,6 @@ const BlogArticle = () => {
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="py-16 bg-blush">
-        <div className="container mx-auto px-4 max-w-2xl">
-          <div className="p-8 md:p-10 rounded-xl bg-navy text-white text-center shadow-lg">
-            <img src={bluePacificLogo} alt="Blue Pacific Cape Cod" className="w-16 h-16 rounded-full mx-auto mb-4 object-cover bg-white p-1" />
-            <h2 className="text-xl font-bold mb-2">Need Professional HVAC Help?</h2>
-            <p className="text-white/60 text-sm mb-5 max-w-md mx-auto leading-relaxed">
-              Blue Pacific Cape Cod serves homeowners throughout Cape Cod with licensed, insured HVAC service.
-            </p>
-            <a
-              href="https://bluepacificcapecod.com/plumbing-falmouth-ma/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-coral text-white font-bold btn-pop"
-            >
-              Visit Blue Pacific Cape Cod <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
-        </div>
-      </section>
     </>
   );
 };
