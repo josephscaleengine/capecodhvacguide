@@ -6,9 +6,7 @@ import { towns } from "@/data/towns";
 
 const Towns = () => {
   return (
-    <div className="min-h-screen page-enter max-w-[1400px] mx-auto shadow-sm">
-      <Header />
-      <main>
+    <>
         {/* Hero */}
         <section className="pt-28 pb-16 bg-navy">
           <div className="container mx-auto px-4">
