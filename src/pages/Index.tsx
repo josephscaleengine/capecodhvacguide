@@ -153,7 +153,7 @@ const Index = () => {
   });
 
   return (
-    <div className="min-h-screen page-fade-in">
+    <div className="min-h-screen page-enter max-w-[1400px] mx-auto shadow-sm">
       <Header />
       <main>
         {/* ===== HERO ===== */}

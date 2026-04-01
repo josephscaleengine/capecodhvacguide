@@ -14,7 +14,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 
 const Services = () => {
   return (
-    <div className="min-h-screen page-fade-in">
+    <div className="min-h-screen page-enter max-w-[1400px] mx-auto shadow-sm">
       <Header />
       <main>
         <section className="pt-28 pb-16 bg-navy">
