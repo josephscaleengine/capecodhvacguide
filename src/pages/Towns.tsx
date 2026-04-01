@@ -6,7 +6,7 @@ import { towns } from "@/data/towns";
 
 const Towns = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen page-fade-in">
       <Header />
       <main>
         {/* Hero */}

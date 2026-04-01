@@ -15,7 +15,7 @@ const Category = () => {
   const Icon = getCategoryIcon(category.slug);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen page-fade-in">
       <Header />
       <main>
         {/* Hero */}

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import {
   Zap, Flame, Wind, Snowflake, Gauge, Fan, Thermometer,
-  ClipboardCheck, AlertTriangle, Leaf, AirVent, ArrowRight, Wrench
+  ClipboardCheck, AlertTriangle, ArrowRight, Wrench
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -9,12 +9,12 @@ import { services } from "@/data/services";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Zap, Flame, Wind, Snowflake, Gauge, Fan, Thermometer,
-  ClipboardCheck, AlertTriangle, Leaf, AirVent,
+  ClipboardCheck, AlertTriangle,
 };
 
 const Services = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen page-fade-in">
       <Header />
       <main>
         {/* Hero */}
@@ -32,16 +32,18 @@ const Services = () => {
         </section>
 
         {/* Services Grid */}
-        <section className="py-20">
+        <section className="py-20 bg-blush">
           <div className="container mx-auto px-4">
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {services.map((svc) => {
+              {services.map((svc, i) => {
                 const Icon = iconMap[svc.icon] || Thermometer;
                 return (
                   <Link
                     key={svc.slug}
                     to={`/services/${svc.slug}`}
-                    className="group p-7 rounded-xl bg-white border border-border card-hover"
+                    className={`group p-7 rounded-xl border border-border card-hover ${
+                      i % 2 === 0 ? "bg-white" : "bg-white"
+                    }`}
                   >
                     <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-5">
                       <Icon className="w-6 h-6 text-accent" />

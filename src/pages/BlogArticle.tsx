@@ -1,8 +1,8 @@
 import { useParams, Link, Navigate } from "react-router-dom";
-import { ArrowLeft, Clock, Calendar, ArrowRight } from "lucide-react";
+import { ArrowLeft, Clock, Calendar, ArrowRight, Lightbulb, AlertTriangle, CheckCircle } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { getArticleBySlug, articles, categories } from "@/data/articles";
+import { getArticleBySlug, articles } from "@/data/articles";
 import { getCategoryIcon, categoryColors } from "@/lib/categoryIcons";
 import ReactMarkdown from "react-markdown";
 
@@ -20,7 +20,7 @@ const BlogArticle = () => {
   const colorClass = categoryColors[article.categorySlug] || "bg-gray-100 text-gray-700";
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen page-fade-in">
       <Header />
       <main>
         {/* Hero */}
@@ -68,18 +68,30 @@ const BlogArticle = () => {
                         {children}
                       </h3>
                     ),
-                    p: ({ children }) => (
-                      <p className="text-muted-foreground leading-relaxed mb-5 text-base md:text-[17px]">
-                        {children}
-                      </p>
-                    ),
+                    p: ({ children }) => {
+                      const text = String(children);
+                      // Tip callout
+                      if (text.startsWith("*") && text.endsWith("*") && text.length > 10) {
+                        return (
+                          <div className="my-6 p-5 rounded-xl bg-yellow-accent/30 border border-yellow-accent/50 flex gap-3">
+                            <Lightbulb className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                            <p className="text-muted-foreground leading-relaxed text-base italic">{children}</p>
+                          </div>
+                        );
+                      }
+                      return (
+                        <p className="text-muted-foreground leading-[1.8] mb-5 text-base md:text-[17px]">
+                          {children}
+                        </p>
+                      );
+                    },
                     strong: ({ children }) => (
                       <strong className="text-foreground font-semibold block mt-5 mb-2">
                         {children}
                       </strong>
                     ),
                     ul: ({ children }) => (
-                      <ul className="my-4 ml-5 space-y-2.5 list-disc marker:text-accent">
+                      <ul className="my-4 ml-1 space-y-2.5">
                         {children}
                       </ul>
                     ),
@@ -89,17 +101,35 @@ const BlogArticle = () => {
                       </ol>
                     ),
                     li: ({ children }) => (
-                      <li className="text-muted-foreground leading-relaxed pl-1">
-                        {children}
+                      <li className="flex items-start gap-2.5 text-muted-foreground leading-relaxed">
+                        <CheckCircle className="w-4 h-4 text-accent flex-shrink-0 mt-1" />
+                        <span>{children}</span>
                       </li>
                     ),
                     em: ({ children }) => (
                       <em className="text-muted-foreground/80 italic">{children}</em>
                     ),
                     blockquote: ({ children }) => (
-                      <blockquote className="border-l-4 border-accent pl-5 my-6 italic text-muted-foreground">
+                      <blockquote className="border-l-4 border-coral pl-5 my-6 py-3 bg-coral/5 rounded-r-lg">
                         {children}
                       </blockquote>
+                    ),
+                    table: ({ children }) => (
+                      <div className="my-8 overflow-hidden rounded-xl border border-border">
+                        <table className="w-full text-sm">{children}</table>
+                      </div>
+                    ),
+                    thead: ({ children }) => (
+                      <thead className="bg-primary text-white">{children}</thead>
+                    ),
+                    th: ({ children }) => (
+                      <th className="text-left px-4 py-3 font-semibold text-sm">{children}</th>
+                    ),
+                    td: ({ children }) => (
+                      <td className="px-4 py-3 text-muted-foreground border-t border-border">{children}</td>
+                    ),
+                    hr: () => (
+                      <hr className="my-10 border-t-2 border-border" />
                     ),
                   }}
                 >

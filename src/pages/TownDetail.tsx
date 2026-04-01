@@ -16,7 +16,7 @@ const TownDetail = () => {
   const displayArticles = townArticles.length > 0 ? townArticles : articles.slice(0, 3);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen page-fade-in">
       <Header />
       <main>
         {/* Hero */}

@@ -13,8 +13,13 @@ const Blog = () => {
     ? articles.filter((a) => a.categorySlug === activeCategory)
     : articles;
 
+  // Only show categories that have articles
+  const categoriesWithArticles = categories.filter(cat =>
+    articles.some(a => a.categorySlug === cat.slug)
+  );
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen page-fade-in">
       <Header />
       <main>
         {/* Hero */}
@@ -47,7 +52,7 @@ const Blog = () => {
                   >
                     All
                   </button>
-                  {categories.map((cat) => (
+                  {categoriesWithArticles.map((cat) => (
                     <button
                       key={cat.slug}
                       onClick={() => setActiveCategory(cat.slug)}
@@ -71,7 +76,7 @@ const Blog = () => {
                   >
                     All Articles
                   </button>
-                  {categories.map((cat) => {
+                  {categoriesWithArticles.map((cat) => {
                     const Icon = getCategoryIcon(cat.slug);
                     return (
                       <button

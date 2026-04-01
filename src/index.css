@@ -25,10 +25,10 @@
     --ring: 201 39% 44%;
     --radius: 0.75rem;
 
-    --coral: 0 84% 81%;
+    --coral: 0 76% 72%;
     --peach: 30 100% 86%;
     --blush: 11 100% 97%;
-    --yellow-accent: 49 96% 81%;
+    --yellow-accent: 49 96% 76%;
     --navy: 204 34% 23%;
 
     --sidebar-background: 0 0% 98%;
@@ -58,12 +58,19 @@
   }
   .card-hover:hover {
     transform: translateY(-6px);
-    box-shadow: 0 8px 30px -8px hsl(var(--coral) / 0.4);
+    box-shadow: 0 8px 30px -8px hsl(var(--coral) / 0.5);
   }
   .btn-pop {
     @apply transition-all duration-200;
   }
   .btn-pop:hover {
     transform: scale(1.03);
+  }
+  .page-fade-in {
+    animation: pageFade 0.25s ease-out;
+  }
+  @keyframes pageFade {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 }
