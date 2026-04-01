@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
-import { Menu, X, Thermometer } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import siteIcon from "@/assets/site-icon.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,9 +24,7 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-9 h-9 rounded-lg bg-accent flex items-center justify-center">
-              <Thermometer className="w-5 h-5 text-white" />
-            </div>
+            <img src={siteIcon} alt="Cape Cod HVAC Guide" className="w-9 h-9 rounded-lg object-cover" />
             <span className="font-bold text-white text-sm leading-tight">
               Cape Cod<br />
               <span className="text-white/70 text-xs font-medium">HVAC Guide</span>
