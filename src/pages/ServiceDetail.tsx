@@ -59,12 +59,12 @@ const ServiceDetail = () => {
                   <p className="text-foreground leading-[1.75] text-lg">{service.description}</p>
                 </div>
 
-                <div className="p-7 rounded-xl bg-blush border border-coral/20">
+                <div className="p-7 rounded-xl bg-blush border border-border">
                   <div className="flex items-center gap-2 mb-3">
                     <MapPin className="w-5 h-5 text-accent" />
                     <h3 className="font-bold text-primary">Why it matters on Cape Cod</h3>
                   </div>
-                  <p className="text-muted-foreground leading-[1.75]">{service.whyCapeCod}</p>
+                  <p className="text-foreground leading-[1.75]">{service.whyCapeCod}</p>
                 </div>
 
                 <div className="p-7 rounded-xl bg-white border border-border shadow-sm">
