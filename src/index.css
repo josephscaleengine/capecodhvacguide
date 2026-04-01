@@ -67,17 +67,4 @@
   .btn-pop:hover {
     transform: scale(1.03);
   }
-  .page-fade-in {
-    animation: pageReveal 0.3s ease-out;
-  }
-  @keyframes pageReveal {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
 }
