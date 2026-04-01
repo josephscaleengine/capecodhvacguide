@@ -161,7 +161,7 @@ const Index = () => {
           <img src={HERO_IMAGE} alt="Cape Cod coastline" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/40" />
           <div className="relative z-10 container mx-auto px-4 py-32 text-center">
-            <div className="max-w-2xl mx-auto">
+            <div className="max-w-4xl mx-auto">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/60 mb-4">
                 Your Local Cape Cod HVAC Resource
               </p>
