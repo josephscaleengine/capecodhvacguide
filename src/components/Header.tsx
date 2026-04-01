@@ -37,16 +37,18 @@ const Header = () => {
               <Link
                 key={link.label}
                 to={link.href}
-                className={`relative px-4 py-2 text-sm font-medium transition-colors rounded-md ${
+                className={`relative px-4 py-2 text-sm font-medium transition-all duration-200 rounded-md group ${
                   isActive(link.href)
                     ? "text-white"
-                    : "text-white/70 hover:text-white hover:bg-white/10"
+                    : "text-white/70 hover:text-white"
                 }`}
               >
                 {link.label}
-                {isActive(link.href) && (
-                  <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-coral rounded-full" />
-                )}
+                <span className={`absolute bottom-0 left-2 right-2 h-0.5 rounded-full transition-all duration-200 ${
+                  isActive(link.href)
+                    ? "bg-coral opacity-100"
+                    : "bg-coral/60 opacity-0 group-hover:opacity-100"
+                }`} />
               </Link>
             ))}
           </nav>
