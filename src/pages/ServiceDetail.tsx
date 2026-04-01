@@ -73,7 +73,7 @@ const ServiceDetail = () => {
                     {service.warningSigns.map((sign, i) => (
                       <li key={i} className="flex items-start gap-3 p-3 rounded-lg bg-blush">
                         <AlertTriangle className="w-5 h-5 text-coral flex-shrink-0 mt-0.5" />
-                        <span className="text-muted-foreground">{sign}</span>
+                        <span className="text-foreground">{sign}</span>
                       </li>
                     ))}
                   </ul>
