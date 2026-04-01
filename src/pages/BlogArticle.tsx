@@ -124,7 +124,7 @@ const BlogArticle = () => {
                       <tr className="even:bg-blush">{children}</tr>
                     ),
                     td: ({ children }) => (
-                      <td className="px-4 py-3 text-muted-foreground border-t border-border">{children}</td>
+                      <td className="px-4 py-3 text-foreground border-t border-border">{children}</td>
                     ),
                     hr: () => (
                       <hr className="my-10 border-t-2 border-border" />
