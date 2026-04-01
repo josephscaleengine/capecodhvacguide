@@ -24,7 +24,7 @@ const BlogArticle = () => {
     <>
       {/* Hero */}
       <section className="pt-28 pb-12 bg-navy">
-        <div className="container mx-auto px-4 max-w-4xl text-center">
+        <div className="container mx-auto px-4 max-w-5xl">
           <div className="mb-6">
             <Link to="/resources" className="inline-flex items-center gap-2 text-white/50 hover:text-white text-sm transition-colors">
               <ArrowLeft className="w-4 h-4" /> All Resources
@@ -36,11 +36,11 @@ const BlogArticle = () => {
               {article.category}
             </span>
           </div>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight max-w-3xl">
             {article.title}
           </h1>
-          <p className="text-lg text-white/70 mb-6 max-w-2xl mx-auto">{article.description}</p>
-          <div className="flex items-center justify-center gap-4 text-sm text-white/50">
+          <p className="text-lg text-white/70 mb-6 max-w-2xl">{article.description}</p>
+          <div className="flex items-center gap-4 text-sm text-white/50">
             <span className="flex items-center gap-1.5"><Clock className="w-4 h-4" />{article.readTime}</span>
             <span className="flex items-center gap-1.5">
               <Calendar className="w-4 h-4" />
@@ -50,34 +50,92 @@ const BlogArticle = () => {
         </div>
       </section>
 
-      {/* Article Content — Section-Based Renderer */}
-      <ArticleSectionRenderer
-        content={article.content}
-        enhancements={enhancements?.afterSection}
-      />
+      {/* Article Content + Sidebar */}
+      <section>
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="flex flex-col lg:flex-row gap-10">
+            {/* Main Content */}
+            <div className="flex-1 min-w-0">
+              <ArticleSectionRenderer
+                content={article.content}
+                enhancements={enhancements?.afterSection}
+              />
+            </div>
 
-      {/* Blue Pacific CTA Card */}
+            {/* Sidebar */}
+            <aside className="lg:w-72 flex-shrink-0 py-10">
+              <div className="lg:sticky lg:top-24 space-y-6">
+                {/* Need Help CTA */}
+                <div className="p-6 rounded-xl bg-coral text-white shadow-md">
+                  <h3 className="font-bold text-lg mb-2">Need Professional Help?</h3>
+                  <p className="text-white/80 text-sm mb-4 leading-relaxed">
+                    Blue Pacific Cape Cod offers trusted HVAC services throughout the Cape.
+                  </p>
+                  <a
+                    href="https://bluepacificcapecod.com/plumbing-falmouth-ma/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 w-full justify-center px-5 py-2.5 rounded-full bg-white text-primary font-bold btn-pop text-sm"
+                  >
+                    Get Help <ArrowRight className="w-4 h-4" />
+                  </a>
+                </div>
+
+                {/* Blue Pacific Card */}
+                <div className="p-6 rounded-xl bg-navy text-white shadow-md">
+                  <div className="flex items-center gap-3 mb-4">
+                    <img src={bluePacificLogo} alt="Blue Pacific" className="w-10 h-10 rounded-full object-cover bg-white p-0.5" />
+                    <div>
+                      <div className="flex items-center gap-1.5">
+                        <Shield className="w-4 h-4 text-peach" />
+                        <span className="font-bold text-sm">Blue Pacific Cape Cod</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="space-y-2 text-sm text-white/60 mb-4">
+                    <div className="flex items-center gap-2"><MapPin className="w-3.5 h-3.5" /> Falmouth, MA</div>
+                    <div className="flex items-center gap-2"><Phone className="w-3.5 h-3.5" /> (508) 274-9939</div>
+                    <div className="flex items-center gap-2"><Mail className="w-3.5 h-3.5" /> BluePacificCapeCod@gmail.com</div>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {["Licensed & Insured", "20+ Years", "Emergency"].map((b) => (
+                      <span key={b} className="text-xs px-2.5 py-1 rounded-full bg-peach/30 text-peach font-medium">{b}</span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Related Articles */}
+                {relatedArticles.length > 0 && (
+                  <div className="p-6 rounded-xl bg-blush border border-border">
+                    <h3 className="font-bold text-primary mb-4">Related Articles</h3>
+                    <div className="space-y-4">
+                      {relatedArticles.map((r) => (
+                        <Link
+                          key={r.slug}
+                          to={`/resources/${r.slug}`}
+                          className="block text-sm font-medium text-muted-foreground hover:text-accent transition-colors leading-snug"
+                        >
+                          {r.title}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      {/* Bottom CTA */}
       <section className="py-16 bg-blush">
         <div className="container mx-auto px-4 max-w-2xl">
           <div className="p-8 md:p-10 rounded-xl bg-navy text-white text-center shadow-lg">
             <img src={bluePacificLogo} alt="Blue Pacific Cape Cod" className="w-16 h-16 rounded-full mx-auto mb-4 object-cover bg-white p-1" />
-            <div className="flex items-center justify-center gap-2 mb-2">
-              <Shield className="w-5 h-5 text-peach" />
-              <h2 className="text-xl font-bold">Blue Pacific Cape Cod</h2>
-            </div>
+            <h2 className="text-xl font-bold mb-2">Need Professional HVAC Help?</h2>
             <p className="text-white/60 text-sm mb-5 max-w-md mx-auto leading-relaxed">
-              Trusted HVAC professionals serving homeowners throughout Cape Cod with licensed, insured service.
+              Blue Pacific Cape Cod serves homeowners throughout Cape Cod with licensed, insured HVAC service.
             </p>
-            <div className="flex flex-wrap justify-center gap-4 text-sm text-white/60 mb-5">
-              <span className="flex items-center gap-1.5"><MapPin className="w-3.5 h-3.5" /> Falmouth, MA</span>
-              <span className="flex items-center gap-1.5"><Phone className="w-3.5 h-3.5" /> (508) 274-9939</span>
-              <span className="flex items-center gap-1.5"><Mail className="w-3.5 h-3.5" /> BluePacificCapeCod@gmail.com</span>
-            </div>
-            <div className="flex flex-wrap justify-center gap-2 mb-6">
-              {["Licensed & Insured", "20+ Years", "Emergency"].map((b) => (
-                <span key={b} className="text-xs px-2.5 py-1 rounded-full bg-peach/30 text-peach font-medium">{b}</span>
-              ))}
-            </div>
             <a
               href="https://bluepacificcapecod.com/plumbing-falmouth-ma/"
               target="_blank"
@@ -89,38 +147,6 @@ const BlogArticle = () => {
           </div>
         </div>
       </section>
-
-      {/* Related Articles */}
-      {relatedArticles.length > 0 && (
-        <section className="py-16">
-          <div className="container mx-auto px-4 max-w-5xl">
-            <h2 className="text-2xl font-bold text-primary mb-8 text-center">Related Articles</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {relatedArticles.map((r) => {
-                const RIcon = getCategoryIcon(r.categorySlug);
-                const rColor = categoryColors[r.categorySlug] || "bg-gray-100 text-gray-700";
-                return (
-                  <Link
-                    key={r.slug}
-                    to={`/resources/${r.slug}`}
-                    className="group p-6 rounded-xl bg-white border border-border shadow-sm card-hover"
-                  >
-                    <span className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold mb-3 ${rColor}`}>
-                      <RIcon className="w-3 h-3" />
-                      {r.category}
-                    </span>
-                    <h3 className="font-bold text-primary group-hover:text-accent transition-colors mb-2 leading-snug">
-                      {r.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground line-clamp-2">{r.description}</p>
-                    <span className="text-xs text-muted-foreground mt-3 block">{r.readTime}</span>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-      )}
     </>
   );
 };
