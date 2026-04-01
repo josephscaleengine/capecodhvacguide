@@ -1481,8 +1481,445 @@ Cape Cod is home to countless historic properties, from 18th-century colonials t
 - Consider cooling as a second phase
 - Upgrade systems as budget allows
     `
+  },
+  {
+    slug: "cape-cod-heat-pump-switch",
+    title: "Why Cape Cod Homes Are Switching to Heat Pumps",
+    description: "Cape Cod's climate and Mass Save rebates are driving a massive shift from oil to heat pumps. Here's what homeowners need to know.",
+    category: "Heat Pumps",
+    categorySlug: "heat-pumps",
+    emoji: "",
+    readTime: "6 min read",
+    publishedDate: "2024-04-01",
+    content: `
+## The Heat Pump Revolution on Cape Cod
+
+Cape Cod is in the middle of a heating transformation. Thousands of homeowners are replacing aging oil furnaces and propane systems with modern heat pumps — and for good reason.
+
+### Why the Switch Is Happening Now
+
+**Mass Save Rebates**
+Massachusetts offers some of the most generous heat pump incentives in the country:
+- Up to $10,000 in rebates for whole-home heat pump systems
+- Income-eligible households can receive up to 100% of costs covered
+- Additional rebates for insulation and weatherization
+- No-cost energy assessments
+
+**Rising Oil Costs**
+Oil prices on Cape Cod have been volatile:
+- Average oil heating costs: $2,500–$3,800 per year
+- Heat pump operating costs: $800–$1,500 per year
+- Many homeowners save 40–60% on annual heating costs
+
+**Environmental Goals**
+Massachusetts has aggressive climate targets, and heat pumps are a key strategy for reducing residential emissions.
+
+### How Heat Pumps Work
+
+Heat pumps don't generate heat — they move it. Even in cold air, there's thermal energy that can be extracted and transferred indoors.
+
+**Cooling Mode:** Works like an air conditioner, removing heat from indoor air
+**Heating Mode:** Extracts heat from outdoor air and transfers it inside
+**Efficiency:** Modern units operate at 200–400% efficiency (for every 1 unit of electricity, they produce 2–4 units of heat)
+
+### Are Heat Pumps Right for Cape Cod Winters?
+
+**Yes — with the right equipment.**
+
+Modern cold-climate heat pumps are designed for New England:
+- Efficient operation down to -15°F
+- Cape Cod rarely drops below 10°F
+- The moderate coastal climate is ideal for heat pump performance
+- Most Cape Cod homeowners can rely on heat pumps as their primary heat source
+
+### Types of Heat Pump Systems
+
+**Ductless Mini-Splits**
+- Perfect for homes without ductwork
+- Zone control for individual rooms
+- Easy installation
+- Most popular option on Cape Cod
+
+**Ducted Heat Pumps**
+- Uses existing ductwork
+- Whole-home heating and cooling
+- Higher capacity
+- Good for larger homes
+
+**Hybrid Systems**
+- Heat pump as primary heat
+- Existing furnace as backup for extreme cold
+- Best of both worlds
+- Smooth transition from old system
+
+### Cost Breakdown
+
+| Component | Cost Range |
+|---|---|
+| Single-zone mini-split | $3,000–$5,000 |
+| Multi-zone system (3-4 zones) | $8,000–$15,000 |
+| Whole-home ducted | $10,000–$18,000 |
+| After Mass Save rebates | Often 40–100% less |
+
+### Making the Switch
+
+**Step 1:** Schedule a free Mass Save energy assessment
+**Step 2:** Get quotes from 2-3 local heat pump installers
+**Step 3:** Apply for rebates and financing
+**Step 4:** Schedule installation (spring/fall is best)
+**Step 5:** Enjoy lower bills and better comfort
+    `
+  },
+  {
+    slug: "average-hvac-costs-cape-cod-2026",
+    title: "Average HVAC Costs on Cape Cod (2026)",
+    description: "Transparent breakdown of what you should expect to pay for common heating and cooling services in the Cape Cod area.",
+    category: "Cost Guides",
+    categorySlug: "cost-guides",
+    emoji: "",
+    readTime: "6 min read",
+    publishedDate: "2024-04-05",
+    content: `
+## What HVAC Services Cost on Cape Cod
+
+Understanding typical costs helps you budget for maintenance and avoid overpaying. Here's a transparent breakdown of 2026 pricing for common HVAC services in the Cape Cod area.
+
+### Installation Costs
+
+**Heat Pump Systems**
+- Single-zone mini-split: $3,000–$5,000
+- Multi-zone mini-split (2-3 zones): $6,000–$12,000
+- Whole-home ducted heat pump: $10,000–$18,000
+- After Mass Save rebates: Costs can be reduced by 40–100%
+
+**Furnace Replacement**
+- Oil furnace: $5,000–$8,000
+- Gas furnace: $3,500–$6,000
+- High-efficiency models: Add $1,000–$2,000
+
+**Boiler Replacement**
+- Standard boiler: $4,000–$8,000
+- High-efficiency boiler: $6,000–$10,000
+- Includes removal of old unit
+
+**Central Air Conditioning**
+- New installation with ductwork: $5,000–$10,000
+- Replacement (existing ducts): $3,500–$7,000
+- High SEER models: Add $500–$1,500
+
+### Service & Repair Costs
+
+**Routine Service Calls**
+- Diagnostic visit: $75–$150
+- Standard repair: $150–$500
+- Emergency/after-hours: $200–$600
+- Weekend/holiday surcharge: $50–$150 extra
+
+**Common Repairs**
+- Thermostat replacement: $150–$500
+- Capacitor replacement: $150–$300
+- Blower motor repair: $300–$800
+- Refrigerant recharge: $200–$500
+- Heat exchanger repair: $500–$1,500
+
+### Maintenance Costs
+
+**Annual Tune-Ups**
+- Heating system tune-up: $100–$200
+- AC tune-up: $100–$200
+- Combined HVAC maintenance: $150–$350
+
+### Cape Cod-Specific Factors
+
+**Why Costs May Be Higher:**
+- Island/peninsula logistics increase travel time
+- Salt air requires more frequent maintenance
+- Many homes have unique/older systems
+- Seasonal demand spikes in summer and winter
+- Limited contractor availability during peak seasons
+
+**Ways to Save:**
+- Take advantage of Mass Save rebates
+- Schedule maintenance during off-peak seasons (spring/fall)
+- Get multiple quotes for major installations
+- Ask about financing options
+- Consider energy efficiency upgrades that pay for themselves
+
+### HVAC System Comparison
+
+| System | Install Cost | Annual Operating | Lifespan | Best For |
+|---|---|---|---|---|
+| Oil Furnace | $5,000–$8,000 | $2,500–$3,800 | 15–20 yrs | Older homes, no gas |
+| Gas Furnace | $3,500–$6,000 | $1,200–$2,000 | 15–20 yrs | Homes with gas lines |
+| Heat Pump (ducted) | $4,500–$9,000 | $800–$1,500 | 12–18 yrs | Whole-home efficiency |
+| Ductless Mini-Split | $3,000–$6,000 | $600–$1,200 | 15–20 yrs | No ductwork, zones |
+| Central AC | $3,500–$7,000 | $400–$800 | 12–15 yrs | Cooling supplement |
+
+*Costs are estimates for the Cape Cod area. Salt air exposure may reduce equipment lifespan by 2–4 years for coastal properties.*
+    `
+  },
+  {
+    slug: "ductless-mini-splits-cape-cod",
+    title: "Ductless Mini-Splits: The Best Fit for Cape Cod?",
+    description: "Why ductless systems are becoming the go-to solution for Cape Cod homes without existing ductwork.",
+    category: "Homeowner Guides",
+    categorySlug: "homeowner-guides",
+    emoji: "",
+    readTime: "5 min read",
+    publishedDate: "2024-04-10",
+    content: `
+## Why Mini-Splits Are Taking Over Cape Cod
+
+If you've driven around Cape Cod recently, you've probably noticed the small white boxes mounted on the sides of homes. Those are ductless mini-split heat pumps, and they're becoming the most popular HVAC solution on the Cape.
+
+### What Makes Mini-Splits Perfect for Cape Cod
+
+**No Ductwork Required**
+Most Cape Cod homes — especially those built before 1970 — don't have ductwork. Installing traditional ducts means tearing into walls, ceilings, and floors. A mini-split needs only a 3-inch hole through an exterior wall.
+
+**Both Heating and Cooling**
+One system handles year-round comfort. Heat efficiently in winter, cool in summer — all from the same unit.
+
+**Zone Control**
+Each indoor unit has its own thermostat. Heat the living room to 72°F while keeping unused bedrooms at 60°F. This flexibility saves energy and money.
+
+**Quiet Operation**
+Indoor units operate at whisper-quiet levels (as low as 19 dB). No more window AC racket during summer.
+
+### Installation Process
+
+**What to Expect:**
+1. Technician evaluates your home's heating/cooling needs
+2. Indoor unit locations are selected (usually high on walls)
+3. A small hole is drilled through the exterior wall
+4. Refrigerant lines connect indoor and outdoor units
+5. Electrical connections are made
+6. System is tested and calibrated
+
+**Timeline:** Most single-zone installations take 4-6 hours. Multi-zone systems may take 1-2 days.
+
+### Cost Considerations
+
+**Single Zone:**
+- Equipment + installation: $3,000–$5,000
+- Covers one room or open area (up to ~500 sq ft)
+- Great for additions or problem rooms
+
+**Multi-Zone (Whole Home):**
+- 3-4 zones: $8,000–$15,000
+- One outdoor unit serves multiple indoor units
+- Complete home coverage
+
+**After Rebates:**
+Mass Save rebates can reduce costs significantly — sometimes covering the entire installation for income-eligible households.
+
+### Maintenance Tips
+
+Keep your mini-split running efficiently:
+- Clean or replace filters every 2-4 weeks during heavy use
+- Keep outdoor unit clear of snow, leaves, and debris
+- Schedule professional cleaning once per year
+- Rinse outdoor coils monthly if near the ocean
+- Don't block indoor unit airflow with furniture or curtains
+
+### Common Concerns
+
+**"Will it look ugly?"**
+Modern indoor units are sleek and low-profile. Many homeowners barely notice them after a few days.
+
+**"Can it really heat in winter?"**
+Yes. Cold-climate mini-splits work efficiently down to -15°F. Cape Cod's mild winters are well within their range.
+
+**"What about power outages?"**
+Mini-splits need electricity. Consider a generator for backup during Cape Cod nor'easters.
+    `
+  },
+  {
+    slug: "mass-save-rebates-cape-cod",
+    title: "Mass Save Rebates: What Cape Cod Homeowners Need to Know",
+    description: "Guide to available rebates and incentives for energy-efficient HVAC upgrades on Cape Cod.",
+    category: "Energy Efficiency",
+    categorySlug: "energy-efficiency",
+    emoji: "",
+    readTime: "5 min read",
+    publishedDate: "2024-04-15",
+    content: `
+## Saving Money on HVAC Upgrades with Mass Save
+
+Mass Save is a collaborative of Massachusetts utilities that offers generous rebates, incentives, and no-cost services to help homeowners improve energy efficiency. Cape Cod homeowners can take advantage of significant savings on HVAC upgrades.
+
+### What Is Mass Save?
+
+Mass Save is funded by Massachusetts utilities (including Eversource and Cape Light Compact, which serve Cape Cod). It provides:
+- No-cost home energy assessments
+- Rebates on efficient equipment
+- 0% financing for qualified improvements
+- Income-eligible programs with enhanced benefits
+
+### Available HVAC Rebates (2026)
+
+**Heat Pumps**
+- Ductless mini-split heat pumps: Up to $10,000
+- Ducted heat pumps: Up to $10,000
+- Ground-source heat pumps: Up to $15,000
+- Income-eligible: Up to 100% of costs covered
+
+**Insulation & Weatherization**
+- 75% of insulation costs covered (up to certain limits)
+- Air sealing included with energy assessment
+- Income-eligible: No cost for insulation
+
+**Smart Thermostats**
+- Rebates of $25–$100 on qualifying models
+- Some available for free through the program
+
+**Water Heating**
+- Heat pump water heaters: Up to $750
+- Integrated systems with HVAC: Additional savings
+
+### How to Get Started
+
+**Step 1: Schedule a Home Energy Assessment**
+- Call 866-527-SAVE or visit MassSave.com
+- A certified auditor visits your home (no cost)
+- Takes about 2-3 hours
+- You'll receive a customized report
+
+**Step 2: Review Your Recommendations**
+The assessment identifies:
+- Air leaks and insulation gaps
+- HVAC efficiency opportunities
+- Recommended equipment upgrades
+- Available rebates for your situation
+
+**Step 3: Choose Your Upgrades**
+Work with qualified contractors to:
+- Get quotes for recommended improvements
+- Apply rebates to reduce costs
+- Utilize 0% financing if needed
+- Schedule work at your convenience
+
+### Cape Cod-Specific Tips
+
+**Timing Matters**
+- Spring and fall are best for installations
+- Demand for contractors peaks in summer and winter
+- Schedule your energy assessment early
+
+**Coastal Considerations**
+- Ask about corrosion-resistant equipment
+- Coastal homes may qualify for additional weatherization
+- Salt air impacts should be discussed with your auditor
+
+**Vacation Homes**
+- Second homes on Cape Cod are eligible for Mass Save
+- Focus on improvements that protect against freeze damage
+- Smart thermostats are especially valuable for remote monitoring
+
+### Maximize Your Savings
+
+**Combine Improvements**
+Bundling insulation, air sealing, and heat pump installation often qualifies for the largest rebates.
+
+**Income-Eligible Programs**
+If your household income qualifies, you may receive:
+- Free insulation and air sealing
+- 100% of heat pump costs covered
+- No-cost smart thermostat
+- Priority scheduling
+
+**Act Quickly**
+Rebate programs change annually. Current offerings are among the most generous in Massachusetts history.
+    `
+  },
+  {
+    slug: "winterizing-vacation-home-hvac-cape-cod",
+    title: "HVAC Guide for Cape Cod Vacation Homeowners",
+    description: "Essential heating and cooling tips for managing your seasonal Cape Cod property year-round.",
+    category: "Vacation Homes",
+    categorySlug: "vacation-homes",
+    emoji: "",
+    readTime: "5 min read",
+    publishedDate: "2024-04-20",
+    content: `
+## Managing Your Vacation Home's HVAC System
+
+Owning a vacation home on Cape Cod means managing heating and cooling from a distance. Whether you rent your property or use it seasonally, proper HVAC management protects your investment and keeps guests comfortable.
+
+### Year-Round HVAC Strategy
+
+**Summer Season (June–September)**
+When the property is in use or rented:
+- Set AC to 72–74°F for guest comfort
+- Change air filters monthly during heavy use
+- Keep outdoor units clear of landscaping
+- Monitor humidity levels (dehumidifiers help in coastal areas)
+
+**Shoulder Seasons (April–May, October–November)**
+Transitional periods require attention:
+- Switch between heating and cooling modes as needed
+- Schedule professional maintenance in spring and fall
+- Check for signs of rodent activity in HVAC equipment
+- Test all zones and thermostats
+
+**Winter (December–March)**
+The highest-risk period for unoccupied homes:
+- Maintain minimum 55°F temperature
+- Install smart thermostat for remote monitoring
+- Set up temperature alerts for dangerous drops
+- Have a local contact who can check the property
+
+### Smart Thermostat Benefits
+
+A smart thermostat is the single best investment for vacation homeowners:
+- Monitor indoor temperature from anywhere
+- Receive alerts if temperature drops below safe levels
+- Adjust settings before you arrive
+- Track energy usage and costs
+- Some models detect humidity issues
+
+### Preventing Freeze Damage
+
+Frozen pipes are a vacation homeowner's nightmare:
+- Never set heat below 55°F in winter
+- Open cabinet doors under sinks during cold snaps
+- Insulate pipes in crawl spaces and exterior walls
+- Consider automatic water shutoff valves
+- Drain systems completely if the home will be unheated
+
+### Energy-Saving Strategies
+
+Balance protection with cost savings:
+- Use programmable schedules to reduce heating when unoccupied
+- Set cooling higher (78–80°F) when the property is empty
+- Zone systems let you heat/cool only occupied areas
+- Invest in insulation to reduce HVAC workload
+
+### Annual Maintenance Schedule
+
+**Spring:**
+- Professional AC tune-up
+- Replace all air filters
+- Clean outdoor coils (especially near the beach)
+- Test cooling operation
+
+**Fall:**
+- Professional heating tune-up
+- Check fuel supply (oil/propane)
+- Test backup heating systems
+- Winterize if the property will be unoccupied
+
+### When to Call a Professional
+
+Don't wait for a crisis:
+- Before and after each season of use
+- If you receive temperature alerts
+- If guests report uneven heating/cooling
+- After major storms or extended power outages
+    `
   }
 ];
+
 
 export const getArticleBySlug = (slug: string): Article | undefined => {
   return articles.find(article => article.slug === slug);
