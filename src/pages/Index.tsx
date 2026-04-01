@@ -138,10 +138,14 @@ const servicesList = [
 ];
 
 const Index = () => {
-  const featured = featuredSlugs
-    .map((slug) => articles.find((a) => a.slug === slug))
-    .filter(Boolean) as typeof articles;
-  const displayFeatured = featured.length >= 4 ? featured : articles.slice(0, 6);
+  const [activeFilter, setActiveFilter] = useState<string>("All");
+
+  const allArticlesForFilter = articles;
+  const filteredArticles = activeFilter === "All"
+    ? featuredSlugs.map(slug => articles.find(a => a.slug === slug)).filter(Boolean) as typeof articles
+    : allArticlesForFilter.filter(a => a.categorySlug === topicSlugs[activeFilter]);
+
+  const displayArticles = filteredArticles.length > 0 ? filteredArticles.slice(0, 6) : [];
 
   const topicsWithArticles = topics.filter(topic => {
     const slug = topicSlugs[topic];
