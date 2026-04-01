@@ -332,23 +332,19 @@ const Index = () => {
         <section id="partner" className="py-20 bg-blush">
           <div className="container mx-auto px-4">
             <div className="max-w-[900px] mx-auto">
-              <div className="p-7 rounded-xl bg-navy text-white shadow-lg">
-                <div className="flex items-center gap-4 mb-5">
-                  <img src={bluePacificLogo} alt="Blue Pacific Cape Cod" className="w-14 h-14 rounded-full object-cover" />
-                  <div>
-                    <p className="text-xs font-bold uppercase tracking-[0.15em] text-white/50 mb-1">Our Recommended Partner</p>
-                    <h2 className="text-xl font-bold text-white">Blue Pacific Cape Cod</h2>
-                  </div>
-                </div>
-                <p className="text-white/70 text-sm leading-relaxed mb-5 max-w-lg">
+              <div className="p-7 rounded-xl bg-navy text-white shadow-lg text-center">
+                <img src={bluePacificLogo} alt="Blue Pacific Cape Cod" className="w-16 h-16 rounded-full object-cover mx-auto mb-3" />
+                <p className="text-xs font-bold uppercase tracking-[0.15em] text-white/50 mb-1">Our Recommended Partner</p>
+                <h2 className="text-xl font-bold text-white mb-3">Blue Pacific Cape Cod</h2>
+                <p className="text-white/70 text-sm leading-relaxed mb-5 max-w-lg mx-auto">
                   Licensed, insured, and serving Cape Cod since 2001 — they're the team we trust and refer our readers to.
                 </p>
-                <div className="space-y-2 text-sm text-white/60 mb-5">
+                <div className="flex flex-col items-center gap-2 text-sm text-white/60 mb-5">
                   <div className="flex items-center gap-2"><MapPin className="w-4 h-4 text-accent" /> Falmouth, MA</div>
                   <div className="flex items-center gap-2"><Phone className="w-4 h-4 text-accent" /> (508) 274-9939</div>
                   <div className="flex items-center gap-2"><Mail className="w-4 h-4 text-accent" /> BluePacificCapeCod@gmail.com</div>
                 </div>
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap justify-center gap-2 mb-6">
                   {[
                     { icon: Shield, text: "Licensed & Insured" },
                     { icon: Award, text: "20+ Years Experience" },
