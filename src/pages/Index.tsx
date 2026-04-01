@@ -338,53 +338,43 @@ const Index = () => {
         {/* ===== PARTNER CARD ===== */}
         <section id="partner" className="py-20 bg-blush">
           <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg border border-border overflow-hidden">
-              <div className="h-1.5 bg-coral" />
-              <div className="p-8 md:p-10">
-                <div className="flex flex-col items-center mb-6">
-                  <img src={bluePacificLogo} alt="Blue Pacific Cape Cod" className="w-20 h-20 rounded-full object-cover mb-4" />
-                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground mb-2">Our Recommended Partner</p>
-                  <h2 className="text-2xl md:text-3xl font-bold text-primary">Blue Pacific Cape Cod</h2>
+            <div className="max-w-[900px] mx-auto">
+              <div className="p-7 rounded-xl bg-navy text-white shadow-lg">
+                <div className="flex items-center gap-4 mb-5">
+                  <img src={bluePacificLogo} alt="Blue Pacific Cape Cod" className="w-14 h-14 rounded-full object-cover" />
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-[0.15em] text-white/50 mb-1">Our Recommended Partner</p>
+                    <h2 className="text-xl font-bold text-white">Blue Pacific Cape Cod</h2>
+                  </div>
                 </div>
-                <p className="text-foreground mb-6 max-w-md mx-auto leading-relaxed text-center text-sm">
+                <p className="text-white/70 text-sm leading-relaxed mb-5 max-w-lg">
                   Licensed, insured, and serving Cape Cod since 2001 — they're the team we trust and refer our readers to.
                 </p>
-
-                <div className="flex flex-wrap justify-center gap-4 mb-6 text-sm">
-                  <span className="flex items-center gap-2 text-muted-foreground">
-                    <MapPin className="w-4 h-4 text-accent" /> Falmouth, MA
-                  </span>
-                  <span className="flex items-center gap-2 text-accent font-medium">
-                    <Phone className="w-4 h-4" /> (508) 274-9939
-                  </span>
-                  <span className="flex items-center gap-2 text-accent font-medium">
-                    <Mail className="w-4 h-4" /> BluePacificCapeCod@gmail.com
-                  </span>
+                <div className="space-y-2 text-sm text-white/60 mb-5">
+                  <div className="flex items-center gap-2"><MapPin className="w-4 h-4 text-accent" /> Falmouth, MA</div>
+                  <div className="flex items-center gap-2"><Phone className="w-4 h-4 text-accent" /> (508) 274-9939</div>
+                  <div className="flex items-center gap-2"><Mail className="w-4 h-4 text-accent" /> BluePacificCapeCod@gmail.com</div>
                 </div>
-
-                <div className="flex flex-wrap justify-center gap-3 mb-8">
+                <div className="flex flex-wrap gap-2 mb-6">
                   {[
                     { icon: Shield, text: "Licensed & Insured" },
                     { icon: Award, text: "20+ Years Experience" },
                     { icon: AlertTriangle, text: "Emergency Services" },
                   ].map((badge) => (
-                    <span key={badge.text} className="flex items-center gap-2 px-4 py-2 rounded-full bg-peach/40 text-primary text-xs font-semibold">
+                    <span key={badge.text} className="flex items-center gap-2 text-xs px-3 py-1.5 rounded-full bg-peach/30 text-peach font-medium">
                       <badge.icon className="w-3.5 h-3.5" />
                       {badge.text}
                     </span>
                   ))}
                 </div>
-
-                <div className="text-center">
-                  <a
-                    href="https://bluepacificcapecod.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-coral text-white font-bold btn-pop"
-                  >
-                    Visit Blue Pacific Cape Cod <ArrowRight className="w-4 h-4" />
-                  </a>
-                </div>
+                <a
+                  href="https://bluepacificcapecod.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-coral text-white font-bold btn-pop text-sm"
+                >
+                  Visit Blue Pacific Cape Cod <ArrowRight className="w-4 h-4" />
+                </a>
               </div>
             </div>
           </div>

@@ -11,26 +11,26 @@
     --body-text: 0 0% 10%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 10%;
-    --primary: 204 34% 23%;
+    --primary: 207 40% 16%;
     --primary-foreground: 0 0% 100%;
     --secondary: 11 100% 97%;
     --secondary-foreground: 0 0% 10%;
     --muted: 210 20% 96%;
-    --muted-foreground: 0 0% 29%;
-    --accent: 201 39% 44%;
+    --muted-foreground: 0 0% 24%;
+    --accent: 193 55% 35%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 210 20% 92%;
-    --input: 210 20% 92%;
-    --ring: 201 39% 44%;
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 193 55% 35%;
     --radius: 0.75rem;
 
-    --coral: 0 80% 75%;
-    --peach: 30 100% 86%;
+    --coral: 6 76% 63%;
+    --peach: 33 100% 80%;
     --blush: 11 100% 97%;
-    --yellow-accent: 49 96% 76%;
-    --navy: 204 34% 23%;
+    --yellow-accent: 49 96% 70%;
+    --navy: 207 40% 16%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -59,7 +59,7 @@
   }
   .card-hover:hover {
     transform: scale(1.02);
-    box-shadow: 0 12px 32px -8px hsl(var(--coral) / 0.35);
+    box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.15);
   }
   .btn-pop {
     @apply transition-all duration-200;
