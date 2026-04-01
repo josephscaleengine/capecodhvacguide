@@ -11,6 +11,8 @@ import Blog from "./pages/Blog";
 import BlogArticle from "./pages/BlogArticle";
 import Category from "./pages/Category";
 import About from "./pages/About";
+import Services from "./pages/Services";
+import ServiceDetail from "./pages/ServiceDetail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,10 +28,16 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/towns" element={<Towns />} />
           <Route path="/towns/:townSlug" element={<TownDetail />} />
+          <Route path="/resources" element={<Blog />} />
+          <Route path="/resources/:articleSlug" element={<BlogArticle />} />
+          <Route path="/resources/category/:categorySlug" element={<Category />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/services/:serviceSlug" element={<ServiceDetail />} />
+          <Route path="/about" element={<About />} />
+          {/* Legacy redirects */}
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:articleSlug" element={<BlogArticle />} />
           <Route path="/blog/category/:categorySlug" element={<Category />} />
-          <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

@@ -2,146 +2,102 @@ import { useParams, Link, Navigate } from "react-router-dom";
 import { ArrowLeft, Clock, Calendar, ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
 import { getArticleBySlug, articles, categories } from "@/data/articles";
+import { getCategoryIcon, categoryColors } from "@/lib/categoryIcons";
 import ReactMarkdown from "react-markdown";
 
 const BlogArticle = () => {
   const { articleSlug } = useParams<{ articleSlug: string }>();
   const article = getArticleBySlug(articleSlug || "");
 
-  if (!article) {
-    return <Navigate to="/blog" replace />;
-  }
+  if (!article) return <Navigate to="/resources" replace />;
 
-  // Get related articles from same category
   const relatedArticles = articles
     .filter((a) => a.categorySlug === article.categorySlug && a.slug !== article.slug)
     .slice(0, 3);
 
+  const Icon = getCategoryIcon(article.categorySlug);
+  const colorClass = categoryColors[article.categorySlug] || "bg-gray-100 text-gray-700";
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       <Header />
       <main>
-        {/* Hero Section */}
-        <section className="relative pt-32 pb-16 overflow-hidden">
-          {/* Background gradient */}
-          <div className="absolute inset-0 bg-gradient-to-b from-secondary via-secondary/50 to-background" />
-          <div className="absolute inset-0 opacity-20">
-            <div className="absolute top-20 left-20 w-64 h-64 rounded-full bg-primary/20 blur-3xl" />
-            <div className="absolute bottom-10 right-20 w-80 h-80 rounded-full bg-accent/10 blur-3xl" />
-          </div>
-          
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-4xl mx-auto">
-              {/* Breadcrumb */}
-              <Link
-                to="/blog"
-                className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground mb-6 text-sm transition-colors"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                All Resources
-              </Link>
+        {/* Hero */}
+        <section className="pt-28 pb-12 bg-navy">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <Link to="/resources" className="inline-flex items-center gap-2 text-white/50 hover:text-white text-sm mb-6 transition-colors">
+              <ArrowLeft className="w-4 h-4" /> All Resources
+            </Link>
 
-              {/* Category */}
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-4xl">{article.emoji}</span>
-                <Link
-                  to={`/blog/category/${article.categorySlug}`}
-                  className="text-sm font-medium text-primary hover:underline uppercase tracking-wide"
-                >
-                  {article.category}
-                </Link>
-              </div>
+            <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold mb-4 ${colorClass}`}>
+              <Icon className="w-3.5 h-3.5" />
+              {article.category}
+            </span>
 
-              {/* Title */}
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 leading-tight">
-                {article.title}
-              </h1>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+              {article.title}
+            </h1>
+            <p className="text-lg text-white/70 mb-6 max-w-2xl">{article.description}</p>
 
-              {/* Description */}
-              <p className="text-lg text-muted-foreground mb-6 max-w-3xl">
-                {article.description}
-              </p>
-
-              {/* Meta */}
-              <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-                <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4" />
-                  {article.readTime}
-                </div>
-                <div className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4" />
-                  {new Date(article.publishedDate).toLocaleDateString("en-US", {
-                    month: "long",
-                    day: "numeric",
-                    year: "numeric",
-                  })}
-                </div>
-                {article.tag && (
-                  <span className="px-3 py-1 rounded-full bg-secondary text-secondary-foreground">
-                    {article.tag}
-                  </span>
-                )}
-              </div>
+            <div className="flex items-center gap-4 text-sm text-white/50">
+              <span className="flex items-center gap-1.5"><Clock className="w-4 h-4" />{article.readTime}</span>
+              <span className="flex items-center gap-1.5">
+                <Calendar className="w-4 h-4" />
+                {new Date(article.publishedDate).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
+              </span>
             </div>
           </div>
         </section>
 
-        {/* Article Content */}
-        <section className="py-20 bg-background">
+        {/* Article Content with Sidebar */}
+        <section className="py-16">
           <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto">
-              <article className="article-content">
+            <div className="flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto">
+              {/* Main Content */}
+              <article className="flex-1 max-w-3xl">
                 <ReactMarkdown
                   components={{
                     h2: ({ children }) => (
-                      <h2 className="text-2xl md:text-3xl font-bold text-foreground mt-12 mb-6 pb-4 border-b border-border leading-tight">
+                      <h2 className="text-2xl md:text-3xl font-bold text-primary mt-12 mb-5 pb-4 border-b border-border leading-tight">
                         {children}
                       </h2>
                     ),
                     h3: ({ children }) => (
-                      <h3 className="text-xl md:text-2xl font-semibold text-foreground mt-10 mb-4 leading-tight">
+                      <h3 className="text-xl md:text-2xl font-semibold text-primary mt-8 mb-3 leading-tight">
                         {children}
                       </h3>
                     ),
                     p: ({ children }) => (
-                      <p className="text-muted-foreground leading-relaxed mb-6 text-base md:text-lg">
+                      <p className="text-muted-foreground leading-relaxed mb-5 text-base md:text-[17px]">
                         {children}
                       </p>
                     ),
                     strong: ({ children }) => (
-                      <strong className="text-foreground font-semibold block mt-6 mb-2">
+                      <strong className="text-foreground font-semibold block mt-5 mb-2">
                         {children}
                       </strong>
                     ),
                     ul: ({ children }) => (
-                      <ul className="my-4 ml-6 space-y-3 list-disc marker:text-primary">
+                      <ul className="my-4 ml-5 space-y-2.5 list-disc marker:text-accent">
                         {children}
                       </ul>
                     ),
                     ol: ({ children }) => (
-                      <ol className="my-4 ml-6 space-y-3 list-decimal marker:text-primary marker:font-semibold">
+                      <ol className="my-4 ml-5 space-y-2.5 list-decimal marker:text-accent marker:font-semibold">
                         {children}
                       </ol>
                     ),
                     li: ({ children }) => (
-                      <li className="text-muted-foreground leading-relaxed text-base md:text-lg pl-2">
+                      <li className="text-muted-foreground leading-relaxed pl-1">
                         {children}
                       </li>
                     ),
-                    a: ({ href, children }) => (
-                      <a
-                        href={href}
-                        className="text-primary font-medium hover:underline"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {children}
-                      </a>
+                    em: ({ children }) => (
+                      <em className="text-muted-foreground/80 italic">{children}</em>
                     ),
                     blockquote: ({ children }) => (
-                      <blockquote className="border-l-4 border-primary pl-6 my-8 italic text-muted-foreground">
+                      <blockquote className="border-l-4 border-accent pl-5 my-6 italic text-muted-foreground">
                         {children}
                       </blockquote>
                     ),
@@ -149,78 +105,60 @@ const BlogArticle = () => {
                 >
                   {article.content}
                 </ReactMarkdown>
-              </article>
 
-              {/* CTA Section */}
-              <div className="mt-16 p-10 md:p-12 rounded-2xl bg-primary text-primary-foreground text-center">
-                <h2 className="text-2xl md:text-3xl font-bold mb-4">Need Professional HVAC Help?</h2>
-                <p className="text-primary-foreground/90 mb-8 max-w-xl mx-auto text-lg leading-relaxed">
-                  Blue Pacific Cape Cod offers trusted HVAC and heating services throughout Cape Cod.
-                </p>
-                <Button
-                  size="lg"
-                  className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-8"
-                  asChild
-                >
+                {/* Article CTA */}
+                <div className="mt-16 p-8 md:p-10 rounded-xl bg-coral text-white text-center">
+                  <h2 className="text-2xl font-bold mb-3">Need Professional HVAC Help?</h2>
+                  <p className="text-white/80 mb-6 max-w-md mx-auto">
+                    Blue Pacific Cape Cod offers trusted HVAC services throughout Cape Cod.
+                  </p>
                   <a
                     href="https://bluepacificcapecod.com/plumbing-falmouth-ma/"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white text-primary font-bold btn-pop"
                   >
-                    Contact Blue Pacific Cape Cod
+                    Contact Blue Pacific <ArrowRight className="w-4 h-4" />
                   </a>
-                </Button>
-              </div>
-
-              {/* Related Articles */}
-              {relatedArticles.length > 0 && (
-                <section className="mt-20 pt-12 border-t border-border">
-                  <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-10">
-                    Related Resources
-                  </h2>
-                  <div className="grid md:grid-cols-3 gap-8">
-                    {relatedArticles.map((related) => (
-                      <Link
-                        key={related.slug}
-                        to={`/blog/${related.slug}`}
-                        className="group block p-6 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all"
-                      >
-                        <div className="flex items-center gap-2 mb-4">
-                          <span className="text-2xl">{related.emoji}</span>
-                          <span className="text-sm text-muted-foreground">
-                            {related.readTime}
-                          </span>
-                        </div>
-                        <h3 className="font-bold text-lg text-foreground group-hover:text-primary transition-colors line-clamp-2 mb-4 leading-snug">
-                          {related.title}
-                        </h3>
-                        <span className="text-primary font-medium text-sm flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
-                          Read More <ArrowRight className="w-4 h-4" />
-                        </span>
-                      </Link>
-                    ))}
-                  </div>
-                </section>
-              )}
-
-              {/* Browse Categories */}
-              <section className="mt-16 pt-10 border-t border-border">
-                <h2 className="text-xl md:text-2xl font-bold text-foreground mb-8">
-                  Browse by Topic
-                </h2>
-                <div className="flex flex-wrap gap-4">
-                  {categories.map((category) => (
-                    <Link
-                      key={category.slug}
-                      to={`/blog/category/${category.slug}`}
-                      className="inline-flex items-center gap-2.5 px-5 py-3 rounded-full bg-card border border-border text-muted-foreground hover:text-foreground hover:border-primary/30 hover:shadow-md transition-all"
-                    >
-                      <span className="text-lg">{category.emoji}</span>
-                      <span className="font-medium">{category.name}</span>
-                    </Link>
-                  ))}
                 </div>
-              </section>
+              </article>
+
+              {/* Sidebar */}
+              <aside className="lg:w-72 flex-shrink-0 space-y-8">
+                {/* Blue Pacific CTA */}
+                <div className="p-6 rounded-xl bg-navy text-white sticky top-24">
+                  <h3 className="font-bold mb-3">Need HVAC Service?</h3>
+                  <p className="text-white/60 text-sm mb-4 leading-relaxed">
+                    Blue Pacific Cape Cod serves homeowners throughout Cape Cod.
+                  </p>
+                  <a
+                    href="https://bluepacificcapecod.com/plumbing-falmouth-ma/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 w-full px-5 py-2.5 rounded-full bg-coral text-white text-sm font-semibold btn-pop"
+                  >
+                    Get Help <ArrowRight className="w-4 h-4" />
+                  </a>
+                </div>
+
+                {/* Related Articles */}
+                {relatedArticles.length > 0 && (
+                  <div className="p-6 rounded-xl bg-blush border border-border">
+                    <h3 className="font-bold text-primary mb-4">Related Articles</h3>
+                    <div className="space-y-4">
+                      {relatedArticles.map((r) => (
+                        <Link
+                          key={r.slug}
+                          to={`/resources/${r.slug}`}
+                          className="block text-sm font-medium text-muted-foreground hover:text-accent transition-colors leading-snug"
+                        >
+                          {r.title}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </aside>
             </div>
           </div>
         </section>

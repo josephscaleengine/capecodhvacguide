@@ -1504,36 +1504,16 @@ export interface Category {
 }
 
 export const categories: Category[] = [
-  {
-    slug: "seasonal",
-    name: "Seasonal Tips",
-    emoji: "❄️",
-    description: "Prepare your HVAC system for Cape Cod's changing seasons"
-  },
-  {
-    slug: "emergency",
-    name: "Emergency Guides",
-    emoji: "🚨",
-    description: "What to do when your heating or cooling system fails"
-  },
-  {
-    slug: "maintenance",
-    name: "Maintenance",
-    emoji: "🔧",
-    description: "Keep your HVAC system running efficiently year-round"
-  },
-  {
-    slug: "older-homes",
-    name: "Older Homes",
-    emoji: "🏠",
-    description: "HVAC solutions for Cape Cod's historic properties"
-  },
-  {
-    slug: "coastal",
-    name: "Coastal Living",
-    emoji: "🌊",
-    description: "Managing HVAC challenges unique to oceanfront properties"
-  }
+  { slug: "seasonal", name: "Seasonal Tips", emoji: "", description: "Prepare your HVAC system for Cape Cod's changing seasons" },
+  { slug: "emergency", name: "Emergency Guides", emoji: "", description: "What to do when your heating or cooling system fails" },
+  { slug: "maintenance", name: "Maintenance", emoji: "", description: "Keep your HVAC system running efficiently year-round" },
+  { slug: "older-homes", name: "Older Homes", emoji: "", description: "HVAC solutions for Cape Cod's historic properties" },
+  { slug: "coastal", name: "Coastal Living", emoji: "", description: "Managing HVAC challenges unique to oceanfront properties" },
+  { slug: "heat-pumps", name: "Heat Pumps", emoji: "", description: "Everything about heat pump systems for Cape Cod homes" },
+  { slug: "cost-guides", name: "Cost Guides", emoji: "", description: "What to expect to pay for HVAC services on Cape Cod" },
+  { slug: "homeowner-guides", name: "Homeowner Guides", emoji: "", description: "Practical guides for Cape Cod homeowners" },
+  { slug: "energy-efficiency", name: "Energy Efficiency", emoji: "", description: "Save energy and reduce costs in your Cape Cod home" },
+  { slug: "vacation-homes", name: "Vacation Homes", emoji: "", description: "HVAC tips for seasonal Cape Cod properties" },
 ];
 
 export const getCategoryBySlug = (slug: string): Category | undefined => {
