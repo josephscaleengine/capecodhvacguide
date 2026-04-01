@@ -11,7 +11,7 @@ import { articles } from "@/data/articles";
 import { getCategoryIcon, categoryColors } from "@/lib/categoryIcons";
 import bluePacificLogo from "@/assets/blue-pacific-logo.png";
 
-const HERO_IMAGE = "https://www.travelandleisure.com/thmb/KtefJySFbmQfmRpT5OvZWAiG17w=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/provincetown-massachusetts-cape-cod_CAPECOD0522-d356840600934ea38d73111119f8957d.jpg";
+const HERO_IMAGE = "https://i.natgeofe.com/n/d5d9e147-d28e-41cb-a45a-e5ca637d9443/capecodbrantpointlightnantucketharbour.jpg";
 
 const serviceIcons: Record<string, React.ComponentType<{ className?: string }>> = {
   Zap, Flame, Wind, Snowflake, Gauge, Fan, Thermometer, ClipboardCheck, AlertTriangle,
