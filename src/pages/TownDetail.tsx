@@ -16,9 +16,7 @@ const TownDetail = () => {
   const displayArticles = townArticles.length > 0 ? townArticles : articles.slice(0, 3);
 
   return (
-    <div className="min-h-screen page-enter max-w-[1400px] mx-auto shadow-sm">
-      <Header />
-      <main>
+    <>
         {/* Hero */}
         <section className="relative pt-28 pb-16 min-h-[400px] flex items-end overflow-hidden">
           <img src={town.image} alt={`${town.name}, Cape Cod`} className="absolute inset-0 w-full h-full object-cover" />
