@@ -135,7 +135,7 @@ const BlogArticle = () => {
                 </ReactMarkdown>
 
                 {/* Article CTA Card */}
-                <div className="mt-16 p-8 md:p-10 rounded-xl bg-white border border-border shadow-lg border-t-4 border-t-coral">
+                <div className="mt-16 p-8 md:p-10 rounded-xl bg-white border border-border shadow-lg">
                   <h2 className="text-2xl font-bold text-primary mb-3 text-center">Need Professional HVAC Help?</h2>
                   <p className="text-muted-foreground mb-6 max-w-md mx-auto text-center">
                     Blue Pacific Cape Cod offers trusted HVAC services throughout Cape Cod.
