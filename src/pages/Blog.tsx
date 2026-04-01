@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { BookOpen, Clock, MapPin, ArrowRight } from "lucide-react";
+import { BookOpen, Clock, ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { articles, categories } from "@/data/articles";
+import { getCategoryIcon, categoryColors } from "@/lib/categoryIcons";
 
 const Blog = () => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
@@ -13,128 +14,124 @@ const Blog = () => {
     : articles;
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       <Header />
       <main>
-        {/* Hero Section */}
-        <section className="relative pt-32 pb-20 overflow-hidden">
-          {/* Background gradient */}
-          <div className="absolute inset-0 bg-gradient-to-b from-secondary via-secondary/50 to-background" />
-          <div className="absolute inset-0 opacity-20">
-            <div className="absolute top-20 left-20 w-64 h-64 rounded-full bg-primary/20 blur-3xl" />
-            <div className="absolute bottom-10 right-20 w-80 h-80 rounded-full bg-accent/10 blur-3xl" />
-          </div>
-          
-          <div className="container mx-auto px-4 relative z-10 text-center">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border mb-6">
-              <BookOpen className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-muted-foreground">Educational Resources</span>
+        {/* Hero */}
+        <section className="pt-28 pb-16 bg-navy">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center gap-2 mb-4">
+              <BookOpen className="w-5 h-5 text-peach" />
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50">Educational Resources</span>
             </div>
-
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
-              HVAC Resources
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">HVAC Resources</h1>
+            <p className="text-lg text-white/70 max-w-xl">
               Expert guidance to help you understand and maintain your Cape Cod home's heating and cooling system.
             </p>
           </div>
         </section>
 
-        {/* Category Filter */}
-        <section className="py-10 bg-muted/30 border-y border-border">
+        {/* Content */}
+        <section className="py-12">
           <div className="container mx-auto px-4">
-            <div className="flex flex-wrap justify-center gap-4">
-              <button
-                onClick={() => setActiveCategory(null)}
-                className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-medium transition-all ${
-                  activeCategory === null
-                    ? "bg-primary text-primary-foreground shadow-md"
-                    : "bg-card border border-border text-muted-foreground hover:text-foreground hover:border-primary/30 hover:shadow-sm"
-                }`}
-              >
-                All Articles
-              </button>
-              {categories.map((category) => (
-                <button
-                  key={category.slug}
-                  onClick={() => setActiveCategory(category.slug)}
-                  className={`inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full font-medium transition-all ${
-                    activeCategory === category.slug
-                      ? "bg-primary text-primary-foreground shadow-md"
-                      : "bg-card border border-border text-muted-foreground hover:text-foreground hover:border-primary/30 hover:shadow-sm"
-                  }`}
-                >
-                  <span className="text-lg">{category.emoji}</span>
-                  <span>{category.name}</span>
-                </button>
-              ))}
-            </div>
-          </div>
-        </section>
+            <div className="flex flex-col lg:flex-row gap-10">
+              {/* Sidebar Filters */}
+              <aside className="lg:w-64 flex-shrink-0">
+                {/* Mobile: horizontal scroll */}
+                <div className="lg:hidden flex gap-2 overflow-x-auto pb-4 -mx-4 px-4">
+                  <button
+                    onClick={() => setActiveCategory(null)}
+                    className={`whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                      activeCategory === null ? "bg-accent text-white" : "bg-blush text-muted-foreground border border-border"
+                    }`}
+                  >
+                    All
+                  </button>
+                  {categories.map((cat) => (
+                    <button
+                      key={cat.slug}
+                      onClick={() => setActiveCategory(cat.slug)}
+                      className={`whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                        activeCategory === cat.slug ? "bg-accent text-white" : "bg-blush text-muted-foreground border border-border"
+                      }`}
+                    >
+                      {cat.name}
+                    </button>
+                  ))}
+                </div>
 
-        {/* Articles Grid */}
-        <section className="py-20 bg-background">
-          <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredArticles.map((article) => (
-                <Link
-                  key={article.slug}
-                  to={`/blog/${article.slug}`}
-                  className="group flex flex-col p-7 rounded-2xl bg-card border border-border shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300"
-                >
-                  {/* Header */}
-                  <div className="flex items-center justify-between mb-5">
-                    <div className="flex items-center gap-2.5">
-                      <span className="text-2xl">{article.emoji}</span>
-                      <span className="text-sm font-medium text-primary uppercase tracking-wide">
-                        {article.category}
-                      </span>
-                    </div>
-                    {article.tag && (
-                      <span className="text-xs px-3 py-1.5 rounded-full bg-accent text-accent-foreground font-semibold">
-                        Featured
-                      </span>
-                    )}
-                  </div>
+                {/* Desktop: sticky sidebar */}
+                <div className="hidden lg:block sticky top-24 space-y-2">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">Filter by Topic</h3>
+                  <button
+                    onClick={() => setActiveCategory(null)}
+                    className={`w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
+                      activeCategory === null ? "bg-accent text-white" : "text-muted-foreground hover:bg-blush"
+                    }`}
+                  >
+                    All Articles
+                  </button>
+                  {categories.map((cat) => {
+                    const Icon = getCategoryIcon(cat.slug);
+                    return (
+                      <button
+                        key={cat.slug}
+                        onClick={() => setActiveCategory(cat.slug)}
+                        className={`w-full text-left flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
+                          activeCategory === cat.slug ? "bg-accent text-white" : "text-muted-foreground hover:bg-blush"
+                        }`}
+                      >
+                        <Icon className="w-4 h-4" />
+                        {cat.name}
+                      </button>
+                    );
+                  })}
+                </div>
+              </aside>
 
-                  {/* Title */}
-                  <h2 className="font-bold text-lg md:text-xl text-foreground mb-3 group-hover:text-primary transition-colors line-clamp-2 leading-snug">
-                    {article.title}
-                  </h2>
-
-                  {/* Description */}
-                  <p className="text-muted-foreground mb-6 line-clamp-3 flex-grow leading-relaxed">
-                    {article.description}
-                  </p>
-
-                  {/* Footer */}
-                  <div className="flex items-center justify-between pt-5 border-t border-border">
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                      <div className="flex items-center gap-1.5">
-                        <Clock className="w-4 h-4" />
-                        <span>{article.readTime}</span>
-                      </div>
-                      {article.tag && (
-                        <div className="flex items-center gap-1.5">
-                          <MapPin className="w-4 h-4" />
-                          <span>{article.tag}</span>
+              {/* Articles Grid */}
+              <div className="flex-1">
+                <div className="grid sm:grid-cols-2 gap-6">
+                  {filteredArticles.map((article) => {
+                    const Icon = getCategoryIcon(article.categorySlug);
+                    const colorClass = categoryColors[article.categorySlug] || "bg-gray-100 text-gray-700";
+                    return (
+                      <Link
+                        key={article.slug}
+                        to={`/resources/${article.slug}`}
+                        className="group flex flex-col p-6 rounded-xl bg-white border border-border card-hover"
+                      >
+                        <div className="flex items-center justify-between mb-4">
+                          <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold ${colorClass}`}>
+                            <Icon className="w-3.5 h-3.5" />
+                            {article.category}
+                          </span>
                         </div>
-                      )}
-                    </div>
-                    <ArrowRight className="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </div>
-                </Link>
-              ))}
-            </div>
+                        <h2 className="font-bold text-lg text-primary mb-2 group-hover:text-accent transition-colors line-clamp-2 leading-snug">
+                          {article.title}
+                        </h2>
+                        <p className="text-sm text-muted-foreground mb-4 line-clamp-3 flex-grow leading-relaxed">
+                          {article.description}
+                        </p>
+                        <div className="flex items-center justify-between pt-4 border-t border-border">
+                          <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
+                            <Clock className="w-3.5 h-3.5" />
+                            <span>{article.readTime}</span>
+                          </div>
+                          <ArrowRight className="w-4 h-4 text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
 
-            {filteredArticles.length === 0 && (
-              <div className="text-center py-12">
-                <p className="text-muted-foreground">
-                  No articles found in this category. Check back soon!
-                </p>
+                {filteredArticles.length === 0 && (
+                  <div className="text-center py-16 bg-blush rounded-xl">
+                    <p className="text-muted-foreground">No articles found in this category yet.</p>
+                  </div>
+                )}
               </div>
-            )}
+            </div>
           </div>
         </section>
       </main>
