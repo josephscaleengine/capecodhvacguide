@@ -96,7 +96,7 @@ const BlogArticle = () => {
                       </ol>
                     ),
                     li: ({ children }) => (
-                      <li className="flex items-start gap-2.5 text-muted-foreground leading-relaxed">
+                      <li className="flex items-start gap-2.5 text-foreground leading-relaxed">
                         <CheckCircle className="w-4 h-4 text-accent flex-shrink-0 mt-1" />
                         <span>{children}</span>
                       </li>
