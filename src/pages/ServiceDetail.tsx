@@ -79,7 +79,7 @@ const ServiceDetail = () => {
                   </ul>
                 </div>
 
-                <div className="p-7 rounded-xl bg-yellow-accent/30 border border-yellow-accent">
+                <div className="p-7 rounded-xl bg-yellow-accent/30 border border-border">
                   <div className="flex items-center gap-2 mb-2">
                     <DollarSign className="w-5 h-5 text-primary" />
                     <h3 className="font-bold text-primary">Typical Cost Range</h3>
