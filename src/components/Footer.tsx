@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Thermometer, Phone, Mail, MapPin } from "lucide-react";
+import { Thermometer } from "lucide-react";
 
 const towns = [
   "Falmouth", "Mashpee", "Sandwich", "Bourne", "Osterville", "Hyannis",
@@ -8,9 +8,14 @@ const towns = [
 ];
 
 const categories = [
-  "Seasonal Tips", "Emergency Guides", "Coastal Living",
-  "Older Homes", "Heat Pumps", "Cost Guides",
-  "Maintenance", "Energy Efficiency"
+  { name: "Seasonal Tips", slug: "seasonal" },
+  { name: "Emergency Guides", slug: "emergency" },
+  { name: "Coastal Living", slug: "coastal" },
+  { name: "Older Homes", slug: "older-homes" },
+  { name: "Heat Pumps", slug: "heat-pumps" },
+  { name: "Cost Guides", slug: "cost-guides" },
+  { name: "Maintenance", slug: "maintenance" },
+  { name: "Energy Efficiency", slug: "energy-efficiency" },
 ];
 
 const Footer = () => {
@@ -18,7 +23,7 @@ const Footer = () => {
     <footer className="bg-navy text-white">
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-3 gap-12">
-          {/* Site Info */}
+          {/* Column 1: Site Info */}
           <div>
             <Link to="/" className="flex items-center gap-2 mb-4">
               <div className="w-9 h-9 rounded-lg bg-accent flex items-center justify-center">
@@ -26,56 +31,45 @@ const Footer = () => {
               </div>
               <span className="font-bold text-white">Cape Cod HVAC Guide</span>
             </Link>
-            <p className="text-white/60 text-sm leading-relaxed mb-6">
+            <p className="text-white/50 text-sm leading-relaxed mb-4">
               Your trusted resource for heating and cooling information, tips, and guidance for Cape Cod homeowners.
             </p>
-            <nav className="flex flex-col gap-2">
-              <Link to="/" className="text-sm text-white/60 hover:text-white transition-colors">Home</Link>
-              <Link to="/services" className="text-sm text-white/60 hover:text-white transition-colors">Services</Link>
-              <Link to="/resources" className="text-sm text-white/60 hover:text-white transition-colors">Resources</Link>
-              <Link to="/about" className="text-sm text-white/60 hover:text-white transition-colors">About</Link>
-            </nav>
+            <p className="text-white/40 text-sm">Serving Cape Cod, Massachusetts</p>
           </div>
 
-          {/* Towns */}
+          {/* Column 2: Towns */}
           <div>
             <h3 className="font-bold text-sm uppercase tracking-wider text-white/40 mb-4">Towns We Cover</h3>
-            <p className="text-sm text-white/60 leading-loose">
+            <p className="text-sm text-white/50 leading-loose">
               {towns.join(" · ")}
             </p>
           </div>
 
-          {/* Categories */}
+          {/* Column 3: Resources */}
           <div>
-            <h3 className="font-bold text-sm uppercase tracking-wider text-white/40 mb-4">Resource Categories</h3>
-            <p className="text-sm text-white/60 leading-loose">
-              {categories.join(" · ")}
-            </p>
+            <h3 className="font-bold text-sm uppercase tracking-wider text-white/40 mb-4">Resources</h3>
+            <div className="flex flex-wrap gap-x-4 gap-y-2">
+              {categories.map((cat) => (
+                <Link
+                  key={cat.slug}
+                  to={`/resources/category/${cat.slug}`}
+                  className="text-sm text-white/50 hover:text-white transition-colors"
+                >
+                  {cat.name}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Bottom — Blue Pacific Recommendation */}
-        <div className="mt-16 pt-8 border-t border-white/10">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-            <div>
-              <p className="text-sm text-white/40 mb-1">Professional services recommended by</p>
-              <p className="font-bold text-white">Blue Pacific Cape Cod</p>
-              <div className="flex flex-wrap items-center gap-4 mt-2 text-sm text-white/50">
-                <span className="flex items-center gap-1.5">
-                  <MapPin className="w-3.5 h-3.5" />
-                  Falmouth, MA
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <Phone className="w-3.5 h-3.5" />
-                  (508) 274-9939
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <Mail className="w-3.5 h-3.5" />
-                  BluePacificCapeCod@gmail.com
-                </span>
-              </div>
+        {/* Bottom bar */}
+        <div className="mt-12 pt-8 border-t border-white/10">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+              <span className="text-sm text-white/40">Professional services recommended by <strong className="text-white/60">Blue Pacific Cape Cod</strong></span>
+              <span className="text-sm text-white/40">(508) 274-9939 · BluePacificCapeCod@gmail.com</span>
             </div>
-            <p className="text-sm text-white/40">
+            <p className="text-sm text-white/30">
               © {new Date().getFullYear()} Cape Cod HVAC Guide
             </p>
           </div>
