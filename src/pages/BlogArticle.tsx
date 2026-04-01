@@ -29,17 +29,14 @@ const BlogArticle = () => {
             <Link to="/resources" className="inline-flex items-center gap-2 text-white/50 hover:text-white text-sm mb-6 transition-colors">
               <ArrowLeft className="w-4 h-4" /> All Resources
             </Link>
-
             <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold mb-4 ${colorClass}`}>
               <Icon className="w-3.5 h-3.5" />
               {article.category}
             </span>
-
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
               {article.title}
             </h1>
             <p className="text-lg text-white/70 mb-6 max-w-2xl">{article.description}</p>
-
             <div className="flex items-center gap-4 text-sm text-white/50">
               <span className="flex items-center gap-1.5"><Clock className="w-4 h-4" />{article.readTime}</span>
               <span className="flex items-center gap-1.5">
@@ -50,37 +47,35 @@ const BlogArticle = () => {
           </div>
         </section>
 
-        {/* Article Content with Sidebar */}
+        {/* Article Content */}
         <section className="py-16">
           <div className="container mx-auto px-4">
             <div className="flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto">
-              {/* Main Content */}
-              <article className="flex-1 max-w-3xl">
+              <article className="flex-1 max-w-[720px]">
                 <ReactMarkdown
                   components={{
                     h2: ({ children }) => (
-                      <h2 className="text-2xl md:text-3xl font-bold text-primary mt-12 mb-5 pb-4 border-b border-border leading-tight">
+                      <h2 className="text-2xl md:text-3xl font-bold text-primary mt-10 mb-5 pb-4 border-b border-border leading-tight">
                         {children}
                       </h2>
                     ),
                     h3: ({ children }) => (
-                      <h3 className="text-xl md:text-2xl font-semibold text-primary mt-8 mb-3 leading-tight">
+                      <h3 className="text-xl md:text-2xl font-semibold text-primary mt-6 mb-3 leading-tight">
                         {children}
                       </h3>
                     ),
                     p: ({ children }) => {
                       const text = String(children);
-                      // Tip callout
                       if (text.startsWith("*") && text.endsWith("*") && text.length > 10) {
                         return (
-                          <div className="my-6 p-5 rounded-xl bg-yellow-accent/30 border border-yellow-accent/50 flex gap-3">
+                          <div className="my-4 p-5 rounded-xl bg-yellow-accent/30 border border-yellow-accent/50 flex gap-3">
                             <Lightbulb className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                             <p className="text-muted-foreground leading-relaxed text-base italic">{children}</p>
                           </div>
                         );
                       }
                       return (
-                        <p className="text-muted-foreground leading-[1.8] mb-5 text-base md:text-[17px]">
+                        <p className="text-muted-foreground leading-[1.75] mb-6 text-base md:text-[17px]">
                           {children}
                         </p>
                       );
@@ -91,12 +86,12 @@ const BlogArticle = () => {
                       </strong>
                     ),
                     ul: ({ children }) => (
-                      <ul className="my-4 ml-1 space-y-2.5">
+                      <ul className="my-4 ml-1 space-y-3">
                         {children}
                       </ul>
                     ),
                     ol: ({ children }) => (
-                      <ol className="my-4 ml-5 space-y-2.5 list-decimal marker:text-accent marker:font-semibold">
+                      <ol className="my-4 ml-5 space-y-3 list-decimal marker:text-accent marker:font-semibold">
                         {children}
                       </ol>
                     ),
@@ -115,7 +110,7 @@ const BlogArticle = () => {
                       </blockquote>
                     ),
                     table: ({ children }) => (
-                      <div className="my-8 overflow-hidden rounded-xl border border-border">
+                      <div className="my-8 overflow-hidden rounded-xl border border-border shadow-sm">
                         <table className="w-full text-sm">{children}</table>
                       </div>
                     ),
@@ -124,6 +119,9 @@ const BlogArticle = () => {
                     ),
                     th: ({ children }) => (
                       <th className="text-left px-4 py-3 font-semibold text-sm">{children}</th>
+                    ),
+                    tr: ({ children }) => (
+                      <tr className="even:bg-blush">{children}</tr>
                     ),
                     td: ({ children }) => (
                       <td className="px-4 py-3 text-muted-foreground border-t border-border">{children}</td>
@@ -136,26 +134,27 @@ const BlogArticle = () => {
                   {article.content}
                 </ReactMarkdown>
 
-                {/* Article CTA */}
-                <div className="mt-16 p-8 md:p-10 rounded-xl bg-coral text-white text-center">
-                  <h2 className="text-2xl font-bold mb-3">Need Professional HVAC Help?</h2>
-                  <p className="text-white/80 mb-6 max-w-md mx-auto">
+                {/* Article CTA Card */}
+                <div className="mt-16 p-8 md:p-10 rounded-xl bg-white border border-border shadow-lg border-t-4 border-t-coral">
+                  <h2 className="text-2xl font-bold text-primary mb-3 text-center">Need Professional HVAC Help?</h2>
+                  <p className="text-muted-foreground mb-6 max-w-md mx-auto text-center">
                     Blue Pacific Cape Cod offers trusted HVAC services throughout Cape Cod.
                   </p>
-                  <a
-                    href="https://bluepacificcapecod.com/plumbing-falmouth-ma/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white text-primary font-bold btn-pop"
-                  >
-                    Contact Blue Pacific <ArrowRight className="w-4 h-4" />
-                  </a>
+                  <div className="text-center">
+                    <a
+                      href="https://bluepacificcapecod.com/plumbing-falmouth-ma/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-coral text-white font-bold btn-pop"
+                    >
+                      Contact Blue Pacific <ArrowRight className="w-4 h-4" />
+                    </a>
+                  </div>
                 </div>
               </article>
 
               {/* Sidebar */}
               <aside className="lg:w-72 flex-shrink-0 space-y-8">
-                {/* Blue Pacific CTA */}
                 <div className="p-6 rounded-xl bg-navy text-white sticky top-24">
                   <h3 className="font-bold mb-3">Need HVAC Service?</h3>
                   <p className="text-white/60 text-sm mb-4 leading-relaxed">
@@ -171,7 +170,6 @@ const BlogArticle = () => {
                   </a>
                 </div>
 
-                {/* Related Articles */}
                 {relatedArticles.length > 0 && (
                   <div className="p-6 rounded-xl bg-blush border border-border">
                     <h3 className="font-bold text-primary mb-4">Related Articles</h3>

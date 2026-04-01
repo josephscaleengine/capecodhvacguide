@@ -8,12 +8,9 @@ import { getCategoryIcon, categoryColors } from "@/lib/categoryIcons";
 
 const Blog = () => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
-
   const filteredArticles = activeCategory
     ? articles.filter((a) => a.categorySlug === activeCategory)
     : articles;
-
-  // Only show categories that have articles
   const categoriesWithArticles = categories.filter(cat =>
     articles.some(a => a.categorySlug === cat.slug)
   );
@@ -22,7 +19,6 @@ const Blog = () => {
     <div className="min-h-screen page-fade-in">
       <Header />
       <main>
-        {/* Hero */}
         <section className="pt-28 pb-16 bg-navy">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-2 mb-4">
@@ -36,13 +32,11 @@ const Blog = () => {
           </div>
         </section>
 
-        {/* Content */}
         <section className="py-12">
           <div className="container mx-auto px-4">
             <div className="flex flex-col lg:flex-row gap-10">
               {/* Sidebar Filters */}
               <aside className="lg:w-64 flex-shrink-0">
-                {/* Mobile: horizontal scroll */}
                 <div className="lg:hidden flex gap-2 overflow-x-auto pb-4 -mx-4 px-4">
                   <button
                     onClick={() => setActiveCategory(null)}
@@ -52,20 +46,22 @@ const Blog = () => {
                   >
                     All
                   </button>
-                  {categoriesWithArticles.map((cat) => (
-                    <button
-                      key={cat.slug}
-                      onClick={() => setActiveCategory(cat.slug)}
-                      className={`whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                        activeCategory === cat.slug ? "bg-accent text-white" : "bg-blush text-muted-foreground border border-border"
-                      }`}
-                    >
-                      {cat.name}
-                    </button>
-                  ))}
+                  {categoriesWithArticles.map((cat) => {
+                    const colorClass = categoryColors[cat.slug] || "bg-muted text-muted-foreground";
+                    return (
+                      <button
+                        key={cat.slug}
+                        onClick={() => setActiveCategory(cat.slug)}
+                        className={`whitespace-nowrap px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                          activeCategory === cat.slug ? colorClass : "bg-blush text-muted-foreground border border-border"
+                        }`}
+                      >
+                        {cat.name}
+                      </button>
+                    );
+                  })}
                 </div>
 
-                {/* Desktop: sticky sidebar */}
                 <div className="hidden lg:block sticky top-24 space-y-2">
                   <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground mb-4">Filter by Topic</h3>
                   <button
@@ -78,12 +74,13 @@ const Blog = () => {
                   </button>
                   {categoriesWithArticles.map((cat) => {
                     const Icon = getCategoryIcon(cat.slug);
+                    const colorClass = categoryColors[cat.slug] || "bg-muted text-muted-foreground";
                     return (
                       <button
                         key={cat.slug}
                         onClick={() => setActiveCategory(cat.slug)}
                         className={`w-full text-left flex items-center gap-2.5 px-4 py-2.5 rounded-lg text-sm font-medium transition-all ${
-                          activeCategory === cat.slug ? "bg-accent text-white" : "text-muted-foreground hover:bg-blush"
+                          activeCategory === cat.slug ? colorClass : "text-muted-foreground hover:bg-blush"
                         }`}
                       >
                         <Icon className="w-4 h-4" />
@@ -104,7 +101,7 @@ const Blog = () => {
                       <Link
                         key={article.slug}
                         to={`/resources/${article.slug}`}
-                        className="group flex flex-col p-6 rounded-xl bg-white border border-border card-hover"
+                        className="group flex flex-col p-6 rounded-xl bg-white border border-border shadow-sm card-hover h-full"
                       >
                         <div className="flex items-center justify-between mb-4">
                           <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold ${colorClass}`}>
@@ -118,7 +115,7 @@ const Blog = () => {
                         <p className="text-sm text-muted-foreground mb-4 line-clamp-3 flex-grow leading-relaxed">
                           {article.description}
                         </p>
-                        <div className="flex items-center justify-between pt-4 border-t border-border">
+                        <div className="flex items-center justify-between pt-4 border-t border-border mt-auto">
                           <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
                             <Clock className="w-3.5 h-3.5" />
                             <span>{article.readTime}</span>
