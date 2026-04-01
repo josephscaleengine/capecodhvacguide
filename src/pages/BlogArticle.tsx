@@ -22,13 +22,17 @@ const BlogArticle = () => {
         {/* Hero */}
         <section className="pt-28 pb-12 bg-navy">
           <div className="container mx-auto px-4 max-w-4xl">
-            <Link to="/resources" className="inline-flex items-center gap-2 text-white/50 hover:text-white text-sm mb-6 transition-colors">
-              <ArrowLeft className="w-4 h-4" /> All Resources
-            </Link>
-            <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold mb-4 ${colorClass}`}>
-              <Icon className="w-3.5 h-3.5" />
-              {article.category}
-            </span>
+            <div className="mb-6">
+              <Link to="/resources" className="inline-flex items-center gap-2 text-white/50 hover:text-white text-sm transition-colors">
+                <ArrowLeft className="w-4 h-4" /> All Resources
+              </Link>
+            </div>
+            <div className="mb-4">
+              <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold ${colorClass}`}>
+                <Icon className="w-3.5 h-3.5" />
+                {article.category}
+              </span>
+            </div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
               {article.title}
             </h1>
