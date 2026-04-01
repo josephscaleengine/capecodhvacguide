@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
 import { MapPin, ArrowRight } from "lucide-react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { towns } from "@/data/towns";
 
 const Towns = () => {

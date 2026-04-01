@@ -3,8 +3,6 @@ import {
   Zap, Flame, Wind, Snowflake, Gauge, Fan, Thermometer,
   ClipboardCheck, AlertTriangle, ArrowRight, Wrench
 } from "lucide-react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { services } from "@/data/services";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {

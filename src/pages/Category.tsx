@@ -1,7 +1,5 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Clock } from "lucide-react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { getCategoryBySlug, getArticlesByCategory, categories } from "@/data/articles";
 import { getCategoryIcon, categoryColors } from "@/lib/categoryIcons";
 

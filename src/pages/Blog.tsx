@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { BookOpen, Clock, ArrowRight } from "lucide-react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { articles, categories } from "@/data/articles";
 import { getCategoryIcon, categoryColors } from "@/lib/categoryIcons";
 

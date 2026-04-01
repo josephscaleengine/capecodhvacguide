@@ -4,8 +4,6 @@ import {
   ClipboardCheck, AlertTriangle, ArrowLeft,
   ArrowRight, DollarSign, MapPin, Shield, Award, Phone, Mail
 } from "lucide-react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { getServiceBySlug, services } from "@/data/services";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {

@@ -1,7 +1,5 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { MapPin, Clock, ArrowRight, ArrowLeft } from "lucide-react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { getTownBySlug, towns } from "@/data/towns";
 import { getArticlesByTown, articles } from "@/data/articles";
 import { getCategoryIcon, categoryColors } from "@/lib/categoryIcons";

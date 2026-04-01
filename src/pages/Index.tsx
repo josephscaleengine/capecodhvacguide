@@ -5,8 +5,6 @@ import {
   Gauge, Fan, Thermometer, ClipboardCheck, AlertTriangle,
   Phone, Mail, Shield, Clock, Award, ChevronRight, Home
 } from "lucide-react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { articles } from "@/data/articles";
 import { getCategoryIcon, categoryColors } from "@/lib/categoryIcons";
 import bluePacificLogo from "@/assets/blue-pacific-logo.png";

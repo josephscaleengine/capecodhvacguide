@@ -1,7 +1,5 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { ArrowLeft, Clock, Calendar, ArrowRight, Lightbulb, AlertTriangle, CheckCircle } from "lucide-react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { getArticleBySlug, articles } from "@/data/articles";
 import { getCategoryIcon, categoryColors } from "@/lib/categoryIcons";
 import ReactMarkdown from "react-markdown";
