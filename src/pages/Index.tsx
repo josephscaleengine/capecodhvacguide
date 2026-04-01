@@ -153,9 +153,7 @@ const Index = () => {
   });
 
   return (
-    <div className="min-h-screen page-enter max-w-[1400px] mx-auto shadow-sm">
-      <Header />
-      <main>
+    <>
         {/* ===== HERO ===== */}
         <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
           <img src={HERO_IMAGE} alt="Cape Cod coastline" className="absolute inset-0 w-full h-full object-cover" />
