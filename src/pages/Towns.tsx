@@ -49,9 +49,7 @@ const Towns = () => {
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
-    </div>
+    </>
   );
 };
 

@@ -47,8 +47,11 @@
   * {
     @apply border-border;
   }
+  html, body, #root {
+    @apply bg-background;
+  }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
     font-family: 'DM Sans', sans-serif;
   }
 }
@@ -66,19 +69,5 @@
   }
   .btn-pop:hover {
     transform: scale(1.03);
-  }
-  .page-enter {
-    animation: pageEnter 0.35s ease-out both;
-  }
-}
-
-@keyframes pageEnter {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }

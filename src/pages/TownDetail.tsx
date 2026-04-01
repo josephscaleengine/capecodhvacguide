@@ -107,9 +107,7 @@ const TownDetail = () => {
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
-    </div>
+    </>
   );
 };
 

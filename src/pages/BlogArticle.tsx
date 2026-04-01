@@ -188,9 +188,7 @@ const BlogArticle = () => {
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
-    </div>
+    </>
   );
 };
 
