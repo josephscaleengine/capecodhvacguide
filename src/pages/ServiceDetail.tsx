@@ -56,7 +56,7 @@ const ServiceDetail = () => {
               <div className="lg:col-span-2 space-y-8">
                 <div className="p-7 rounded-xl bg-white border border-border shadow-sm">
                   <h2 className="text-2xl font-bold text-primary mb-4">What is this service?</h2>
-                  <p className="text-muted-foreground leading-[1.75] text-lg">{service.description}</p>
+                  <p className="text-foreground leading-[1.75] text-lg">{service.description}</p>
                 </div>
 
                 <div className="p-7 rounded-xl bg-blush border border-coral/20">
