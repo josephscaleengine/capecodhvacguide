@@ -157,11 +157,11 @@ const Index = () => {
       <Header />
       <main>
         {/* ===== HERO ===== */}
-        <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
           <img src={HERO_IMAGE} alt="Cape Cod coastline" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/40" />
-          <div className="relative z-10 container mx-auto px-4 py-32">
-            <div className="max-w-2xl">
+          <div className="relative z-10 container mx-auto px-4 py-32 text-center">
+            <div className="max-w-2xl mx-auto">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-white/60 mb-4">
                 Your Local Cape Cod HVAC Resource
               </p>
@@ -170,10 +170,10 @@ const Index = () => {
                 <br />
                 <span className="text-peach">for Cape Cod Homeowners</span>
               </h1>
-              <p className="text-lg text-white/75 mb-8 leading-relaxed max-w-xl">
+              <p className="text-lg text-white/75 mb-8 leading-relaxed max-w-xl mx-auto">
                 Trusted tips, local insights, and professional resources to help you maintain your home comfort — from Falmouth to Provincetown.
               </p>
-              <div className="flex flex-wrap gap-4 mb-12">
+              <div className="flex flex-wrap justify-center gap-4 mb-12">
                 <Link to="/resources" className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-accent text-white font-semibold btn-pop">
                   Browse Resources <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -188,7 +188,7 @@ const Index = () => {
                   Need HVAC Service?
                 </a>
               </div>
-              <div className="flex flex-wrap gap-6">
+              <div className="flex flex-wrap justify-center gap-6">
                 {[
                   { icon: MapPin, text: "Cape Cod Expertise" },
                   { icon: BookOpen, text: "Free Educational Guides" },
