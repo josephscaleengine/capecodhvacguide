@@ -4,6 +4,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import Index from "./pages/Index";
 import Towns from "./pages/Towns";
 import TownDetail from "./pages/TownDetail";
@@ -24,22 +26,28 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/towns" element={<Towns />} />
-          <Route path="/towns/:townSlug" element={<TownDetail />} />
-          <Route path="/resources" element={<Blog />} />
-          <Route path="/resources/:articleSlug" element={<BlogArticle />} />
-          <Route path="/resources/category/:categorySlug" element={<Category />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/services/:serviceSlug" element={<ServiceDetail />} />
-          <Route path="/about" element={<About />} />
-          {/* Legacy redirects */}
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:articleSlug" element={<BlogArticle />} />
-          <Route path="/blog/category/:categorySlug" element={<Category />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <div className="max-w-[1400px] mx-auto shadow-sm min-h-screen">
+          <Header />
+          <main className="min-h-[60vh]">
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/towns" element={<Towns />} />
+              <Route path="/towns/:townSlug" element={<TownDetail />} />
+              <Route path="/resources" element={<Blog />} />
+              <Route path="/resources/:articleSlug" element={<BlogArticle />} />
+              <Route path="/resources/category/:categorySlug" element={<Category />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/services/:serviceSlug" element={<ServiceDetail />} />
+              <Route path="/about" element={<About />} />
+              {/* Legacy redirects */}
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:articleSlug" element={<BlogArticle />} />
+              <Route path="/blog/category/:categorySlug" element={<Category />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

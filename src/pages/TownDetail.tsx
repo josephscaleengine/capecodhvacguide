@@ -1,7 +1,5 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { MapPin, Clock, ArrowRight, ArrowLeft } from "lucide-react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { getTownBySlug, towns } from "@/data/towns";
 import { getArticlesByTown, articles } from "@/data/articles";
 import { getCategoryIcon, categoryColors } from "@/lib/categoryIcons";
@@ -16,9 +14,7 @@ const TownDetail = () => {
   const displayArticles = townArticles.length > 0 ? townArticles : articles.slice(0, 3);
 
   return (
-    <div className="min-h-screen page-enter max-w-[1400px] mx-auto shadow-sm">
-      <Header />
-      <main>
+    <>
         {/* Hero */}
         <section className="relative pt-28 pb-16 min-h-[400px] flex items-end overflow-hidden">
           <img src={town.image} alt={`${town.name}, Cape Cod`} className="absolute inset-0 w-full h-full object-cover" />
@@ -109,9 +105,7 @@ const TownDetail = () => {
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
-    </div>
+    </>
   );
 };
 

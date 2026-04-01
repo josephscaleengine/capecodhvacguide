@@ -5,8 +5,6 @@ import {
   Gauge, Fan, Thermometer, ClipboardCheck, AlertTriangle,
   Phone, Mail, Shield, Clock, Award, ChevronRight, Home
 } from "lucide-react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { articles } from "@/data/articles";
 import { getCategoryIcon, categoryColors } from "@/lib/categoryIcons";
 import bluePacificLogo from "@/assets/blue-pacific-logo.png";
@@ -153,9 +151,7 @@ const Index = () => {
   });
 
   return (
-    <div className="min-h-screen page-enter max-w-[1400px] mx-auto shadow-sm">
-      <Header />
-      <main>
+    <>
         {/* ===== HERO ===== */}
         <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
           <img src={HERO_IMAGE} alt="Cape Cod coastline" className="absolute inset-0 w-full h-full object-cover" />
@@ -369,9 +365,7 @@ const Index = () => {
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
-    </div>
+    </>
   );
 };
 

@@ -1,7 +1,5 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { ArrowLeft, Clock, Calendar, ArrowRight, Lightbulb, AlertTriangle, CheckCircle } from "lucide-react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { getArticleBySlug, articles } from "@/data/articles";
 import { getCategoryIcon, categoryColors } from "@/lib/categoryIcons";
 import ReactMarkdown from "react-markdown";
@@ -20,9 +18,7 @@ const BlogArticle = () => {
   const colorClass = categoryColors[article.categorySlug] || "bg-gray-100 text-gray-700";
 
   return (
-    <div className="min-h-screen page-enter max-w-[1400px] mx-auto shadow-sm">
-      <Header />
-      <main>
+    <>
         {/* Hero */}
         <section className="pt-28 pb-12 bg-navy">
           <div className="container mx-auto px-4 max-w-4xl">
@@ -190,9 +186,7 @@ const BlogArticle = () => {
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
-    </div>
+    </>
   );
 };
 

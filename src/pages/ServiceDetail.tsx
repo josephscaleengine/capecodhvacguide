@@ -4,8 +4,6 @@ import {
   ClipboardCheck, AlertTriangle, ArrowLeft,
   ArrowRight, DollarSign, MapPin, Shield, Award, Phone, Mail
 } from "lucide-react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { getServiceBySlug, services } from "@/data/services";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -30,9 +28,7 @@ const ServiceDetail = () => {
   const isBluePacificService = bluePacificServices.includes(service.slug);
 
   return (
-    <div className="min-h-screen page-enter max-w-[1400px] mx-auto shadow-sm">
-      <Header />
-      <main>
+    <>
         <section className="pt-28 pb-16 bg-navy">
           <div className="container mx-auto px-4">
             <Link to="/services" className="inline-flex items-center gap-2 text-white/50 hover:text-white text-sm mb-6 transition-colors">
@@ -152,9 +148,7 @@ const ServiceDetail = () => {
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
-    </div>
+    </>
   );
 };
 

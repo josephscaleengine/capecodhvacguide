@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { BookOpen, Clock, ArrowRight } from "lucide-react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { articles, categories } from "@/data/articles";
 import { getCategoryIcon, categoryColors } from "@/lib/categoryIcons";
 
@@ -16,9 +14,7 @@ const Blog = () => {
   );
 
   return (
-    <div className="min-h-screen page-enter max-w-[1400px] mx-auto shadow-sm">
-      <Header />
-      <main>
+    <>
         <section className="pt-28 pb-16 bg-navy">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-2 mb-4">
@@ -136,9 +132,7 @@ const Blog = () => {
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
-    </div>
+    </>
   );
 };
 
