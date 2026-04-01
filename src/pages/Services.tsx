@@ -40,7 +40,7 @@ const Services = () => {
                   <Link
                     key={svc.slug}
                     to={`/services/${svc.slug}`}
-                    className="group p-7 rounded-xl bg-white border border-border card-hover border-l-4 border-l-coral/60"
+                    className="group p-7 rounded-xl bg-white border border-border card-hover shadow-sm"
                   >
                     <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-5 ${isCoralIcon ? "bg-coral/15" : "bg-accent/10"}`}>
                       <Icon className={`w-6 h-6 ${isCoralIcon ? "text-coral" : "text-accent"}`} />
