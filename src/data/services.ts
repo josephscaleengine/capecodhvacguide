@@ -77,7 +77,7 @@ export const services: Service[] = [
       "System is over 12 years old"
     ],
     costRange: "$3,500 – $7,000",
-    bluePacificOffers: true
+    bluePacificOffers: false
   },
   {
     slug: "boiler-services",
@@ -94,7 +94,7 @@ export const services: Service[] = [
       "Rising fuel consumption"
     ],
     costRange: "$4,000 – $10,000 (replacement)",
-    bluePacificOffers: true
+    bluePacificOffers: false
   },
   {
     slug: "duct-cleaning-sealing",
@@ -111,7 +111,7 @@ export const services: Service[] = [
       "Family members experiencing increased allergies"
     ],
     costRange: "$300 – $700",
-    bluePacificOffers: true
+    bluePacificOffers: false
   },
   {
     slug: "thermostat-installation",
@@ -128,24 +128,7 @@ export const services: Service[] = [
       "Incompatibility with new HVAC equipment"
     ],
     costRange: "$150 – $500 installed",
-    bluePacificOffers: true
-  },
-  {
-    slug: "hvac-maintenance-plans",
-    name: "HVAC Maintenance Plans",
-    icon: "ClipboardCheck",
-    shortDescription: "Preventive maintenance to extend system life and prevent breakdowns.",
-    description: "Regular professional maintenance keeps your HVAC system running at peak efficiency and helps prevent unexpected breakdowns. Most manufacturers require annual professional maintenance to maintain warranty coverage.",
-    whyCapeCod: "Cape Cod's coastal environment is harder on HVAC equipment than inland locations. Salt air, sand, and humidity accelerate wear and reduce system lifespan. Regular maintenance is the single most effective way to combat these environmental challenges.",
-    warningSigns: [
-      "It's been over a year since last professional service",
-      "System efficiency seems to be declining",
-      "Equipment is making new or unusual sounds",
-      "Energy bills are creeping up",
-      "You want to protect your warranty"
-    ],
-    costRange: "$150 – $350/year",
-    bluePacificOffers: true
+    bluePacificOffers: false
   },
   {
     slug: "emergency-heating-repair",
@@ -163,40 +146,6 @@ export const services: Service[] = [
     ],
     costRange: "$150 – $500 (service call + repair)",
     bluePacificOffers: true
-  },
-  {
-    slug: "energy-audits-efficiency",
-    name: "Energy Audits & Efficiency",
-    icon: "Leaf",
-    shortDescription: "Identify energy waste and optimize your home's performance.",
-    description: "A professional energy audit identifies where your home is losing energy and provides a prioritized plan for improvements. Many Cape Cod homeowners discover they can significantly reduce energy costs with targeted upgrades.",
-    whyCapeCod: "Many Cape Cod homes are older and were built before modern energy codes. An energy audit can identify cost-effective improvements that dramatically reduce heating costs. Mass Save offers free or subsidized energy audits for Cape Cod homeowners.",
-    warningSigns: [
-      "Energy bills seem high compared to neighbors",
-      "Drafty rooms even when windows are closed",
-      "Ice dams forming on the roof in winter",
-      "Second floor is much hotter than first in summer",
-      "HVAC system runs constantly"
-    ],
-    costRange: "Free – $400 (often subsidized by Mass Save)",
-    bluePacificOffers: false
-  },
-  {
-    slug: "indoor-air-quality",
-    name: "Indoor Air Quality Solutions",
-    icon: "AirVent",
-    shortDescription: "Breathe easier with air purification and ventilation systems.",
-    description: "Indoor air quality solutions include air purifiers, humidifiers, dehumidifiers, UV germicidal lights, and ventilation systems. These products work with your HVAC system to create a healthier indoor environment.",
-    whyCapeCod: "Cape Cod's coastal humidity can create mold and mildew issues, while tightly sealed modern homes may lack adequate ventilation. Seasonal properties that sit closed for months especially benefit from air quality solutions to combat musty air and allergens.",
-    warningSigns: [
-      "Persistent musty or stale odors",
-      "Excessive humidity or condensation on windows",
-      "Family members with frequent allergies or respiratory issues",
-      "Visible mold in bathrooms or near HVAC equipment",
-      "Dry air causing static, cracking wood, or discomfort"
-    ],
-    costRange: "$500 – $3,000",
-    bluePacificOffers: false
   }
 ];
 
