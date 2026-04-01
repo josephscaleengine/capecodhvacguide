@@ -16,9 +16,7 @@ const Blog = () => {
   );
 
   return (
-    <div className="min-h-screen page-enter max-w-[1400px] mx-auto shadow-sm">
-      <Header />
-      <main>
+    <>
         <section className="pt-28 pb-16 bg-navy">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-2 mb-4">
