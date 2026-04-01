@@ -85,7 +85,7 @@ const ServiceDetail = () => {
                     <h3 className="font-bold text-primary">Typical Cost Range</h3>
                   </div>
                   <p className="text-3xl font-bold text-primary mb-1">{service.costRange}</p>
-                  <p className="text-sm text-muted-foreground">Costs vary based on home size, system complexity, and location on Cape Cod.</p>
+                  <p className="text-sm text-foreground">Costs vary based on home size, system complexity, and location on Cape Cod.</p>
                 </div>
               </div>
 
