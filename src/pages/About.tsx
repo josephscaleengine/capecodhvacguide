@@ -46,7 +46,7 @@ const About = () => {
                       <item.icon className="w-6 h-6 text-accent" />
                     </div>
                     <h3 className="font-bold text-primary mb-1">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground">{item.desc}</p>
+                    <p className="text-sm text-foreground">{item.desc}</p>
                   </div>
                 ))}
               </div>

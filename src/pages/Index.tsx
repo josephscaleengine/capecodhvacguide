@@ -9,8 +9,9 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { articles } from "@/data/articles";
 import { getCategoryIcon, categoryColors } from "@/lib/categoryIcons";
+import bluePacificLogo from "@/assets/blue-pacific-logo.png";
 
-const HERO_IMAGE = "https://www.travelandleisure.com/thmb/KtefJySFbmQfmRpT5OvZWAiG17w=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/provincetown-massachusetts-cape-cod_CAPECOD0522-d356840600934ea38b73111119f8957d.jpg";
+const HERO_IMAGE = "https://www.travelandleisure.com/thmb/KtefJySFbmQfmRpT5OvZWAiG17w=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/provincetown-massachusetts-cape-cod_CAPECOD0522-d356840600934ea38d73111119f8957d.jpg";
 
 const serviceIcons: Record<string, React.ComponentType<{ className?: string }>> = {
   Zap, Flame, Wind, Snowflake, Gauge, Fan, Thermometer, ClipboardCheck, AlertTriangle,
@@ -52,7 +53,7 @@ function StatCard({ value, prefix = "", suffix = "", label, chart }: {
         <p className="text-3xl font-bold text-primary">{prefix}{count.toLocaleString()}{suffix}</p>
         <div className="w-16 h-10">{chart}</div>
       </div>
-      <p className="text-sm text-muted-foreground leading-snug">{label}</p>
+      <p className="text-sm text-foreground leading-snug">{label}</p>
     </div>
   );
 }
@@ -215,30 +216,30 @@ const Index = () => {
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3">Featured HVAC Guides</h2>
-            <p className="text-muted-foreground mb-12 max-w-xl">
+            <p className="text-foreground mb-12 max-w-xl">
               In-depth guides on common heating and cooling challenges facing Cape Cod homeowners.
             </p>
             <div className="grid md:grid-cols-2 gap-6">
               {displayFeatured.map((article, i) => {
-                const Icon = getCategoryIcon(article.categorySlug);
+                const CatIcon = getCategoryIcon(article.categorySlug);
                 const colorClass = categoryColors[article.categorySlug] || "bg-gray-100 text-gray-700";
                 const isLarge = i % 3 === 0;
                 return (
                   <Link
                     key={article.slug}
                     to={`/resources/${article.slug}`}
-                    className={`group block p-7 rounded-xl bg-white border border-border card-hover ${isLarge ? "md:row-span-2" : ""}`}
+                    className={`group block p-7 rounded-xl bg-white border border-border card-hover shadow-sm ${isLarge ? "md:row-span-2" : ""}`}
                   >
                     <div className="flex items-center gap-2 mb-4">
                       <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold ${colorClass}`}>
-                        <Icon className="w-3.5 h-3.5" />
+                        <CatIcon className="w-3.5 h-3.5" />
                         {article.category}
                       </span>
                     </div>
                     <h3 className={`font-bold text-primary mb-3 group-hover:text-accent transition-colors leading-snug ${isLarge ? "text-xl md:text-2xl" : "text-lg"}`}>
                       {article.title}
                     </h3>
-                    <p className={`text-muted-foreground leading-relaxed ${isLarge ? "line-clamp-4 mb-6" : "line-clamp-2 mb-4"}`}>
+                    <p className={`text-foreground leading-relaxed ${isLarge ? "line-clamp-4 mb-6" : "line-clamp-2 mb-4"}`}>
                       {article.description}
                     </p>
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -252,11 +253,11 @@ const Index = () => {
           </div>
         </section>
 
-        {/* ===== CTA BANNER (CORAL) — moved higher ===== */}
+        {/* ===== CTA BANNER (CORAL) ===== */}
         <section className="py-16 bg-coral">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold text-white mb-3">Need a Licensed HVAC Professional?</h2>
-            <p className="text-white/80 mb-8 max-w-lg mx-auto">
+            <p className="text-white/90 mb-8 max-w-lg mx-auto">
               Professional services provided by Blue Pacific Cape Cod.
             </p>
             <a
@@ -288,25 +289,26 @@ const Index = () => {
           </div>
         </section>
 
-        {/* ===== COMMON SERVICES (BLUSH) ===== */}
+        {/* ===== COMMON HVAC SERVICES (BLUSH) ===== */}
         <section className="py-20 bg-blush">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-primary mb-3">Common HVAC Services</h2>
-            <p className="text-muted-foreground mb-10">Learn about heating and cooling services available on Cape Cod.</p>
+            <p className="text-foreground mb-10">Learn about heating and cooling services available on Cape Cod.</p>
             <div className="grid sm:grid-cols-2 gap-4">
-              {servicesList.map((svc) => {
-                const Icon = serviceIcons[svc.icon] || Thermometer;
+              {servicesList.map((svc, i) => {
+                const SvcIcon = serviceIcons[svc.icon] || Thermometer;
+                const isCoralIcon = i % 2 === 1;
                 return (
                   <Link
                     key={svc.slug}
                     to={`/services/${svc.slug}`}
-                    className="flex items-center gap-4 py-4 px-5 rounded-xl bg-white border border-border hover:bg-blush hover:border-coral/30 transition-all group"
+                    className="flex items-center gap-4 py-4 px-5 rounded-xl bg-white border border-border shadow-sm card-hover group"
                   >
-                    <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-5 h-5 text-accent" />
+                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${isCoralIcon ? "bg-coral/15" : "bg-accent/10"}`}>
+                      <SvcIcon className={`w-5 h-5 ${isCoralIcon ? "text-coral" : "text-accent"}`} />
                     </div>
                     <span className="font-medium text-foreground group-hover:text-accent transition-colors flex-1">{svc.name}</span>
-                    <ChevronRight className="w-5 h-5 text-muted-foreground/40 group-hover:text-accent transition-colors" />
+                    <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-colors" />
                   </Link>
                 );
               })}
@@ -318,15 +320,15 @@ const Index = () => {
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl font-bold text-primary mb-2">Serving All of Cape Cod</h2>
-            <p className="text-muted-foreground mb-10">Resources for every Cape Cod community</p>
+            <p className="text-foreground mb-10">Resources for every Cape Cod community</p>
             <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
               {allTowns.map((town) => (
                 <div
                   key={town}
-                  className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-border shadow-sm hover:bg-accent hover:text-white hover:border-accent hover:shadow-md transition-all cursor-default group"
+                  className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-muted border border-border shadow-sm hover:bg-accent hover:text-white hover:border-accent transition-all cursor-default group"
                 >
                   <Home className="w-3.5 h-3.5 text-accent group-hover:text-white flex-shrink-0" />
-                  <span className="text-sm font-medium text-foreground group-hover:text-white">{town}</span>
+                  <span className="text-sm font-medium text-primary group-hover:text-white">{town}</span>
                 </div>
               ))}
             </div>
@@ -337,12 +339,14 @@ const Index = () => {
         <section id="partner" className="py-20 bg-blush">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg border border-border overflow-hidden">
-              {/* Coral accent stripe */}
               <div className="h-1.5 bg-coral" />
               <div className="p-8 md:p-10">
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground mb-4 text-center">Our Recommended Partner</p>
-                <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3 text-center">Blue Pacific Cape Cod</h2>
-                <p className="text-muted-foreground mb-6 max-w-md mx-auto leading-relaxed text-center text-sm">
+                <div className="flex flex-col items-center mb-6">
+                  <img src={bluePacificLogo} alt="Blue Pacific Cape Cod" className="w-20 h-20 rounded-full object-cover mb-4" />
+                  <p className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground mb-2">Our Recommended Partner</p>
+                  <h2 className="text-2xl md:text-3xl font-bold text-primary">Blue Pacific Cape Cod</h2>
+                </div>
+                <p className="text-foreground mb-6 max-w-md mx-auto leading-relaxed text-center text-sm">
                   Licensed, insured, and serving Cape Cod since 2001 — they're the team we trust and refer our readers to.
                 </p>
 
