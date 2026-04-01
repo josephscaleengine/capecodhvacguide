@@ -75,7 +75,7 @@ const BlogArticle = () => {
                         );
                       }
                       return (
-                        <p className="text-muted-foreground leading-[1.75] mb-6 text-base md:text-[17px]">
+                        <p className="text-foreground leading-[1.75] mb-6 text-base md:text-[17px]">
                           {children}
                         </p>
                       );
@@ -96,7 +96,7 @@ const BlogArticle = () => {
                       </ol>
                     ),
                     li: ({ children }) => (
-                      <li className="flex items-start gap-2.5 text-muted-foreground leading-relaxed">
+                      <li className="flex items-start gap-2.5 text-foreground leading-relaxed">
                         <CheckCircle className="w-4 h-4 text-accent flex-shrink-0 mt-1" />
                         <span>{children}</span>
                       </li>
@@ -124,7 +124,7 @@ const BlogArticle = () => {
                       <tr className="even:bg-blush">{children}</tr>
                     ),
                     td: ({ children }) => (
-                      <td className="px-4 py-3 text-muted-foreground border-t border-border">{children}</td>
+                      <td className="px-4 py-3 text-foreground border-t border-border">{children}</td>
                     ),
                     hr: () => (
                       <hr className="my-10 border-t-2 border-border" />
@@ -135,9 +135,9 @@ const BlogArticle = () => {
                 </ReactMarkdown>
 
                 {/* Article CTA Card */}
-                <div className="mt-16 p-8 md:p-10 rounded-xl bg-white border border-border shadow-lg border-t-4 border-t-coral">
+                <div className="mt-16 p-8 md:p-10 rounded-xl bg-white border border-border shadow-lg">
                   <h2 className="text-2xl font-bold text-primary mb-3 text-center">Need Professional HVAC Help?</h2>
-                  <p className="text-muted-foreground mb-6 max-w-md mx-auto text-center">
+                  <p className="text-foreground mb-6 max-w-md mx-auto text-center">
                     Blue Pacific Cape Cod offers trusted HVAC services throughout Cape Cod.
                   </p>
                   <div className="text-center">

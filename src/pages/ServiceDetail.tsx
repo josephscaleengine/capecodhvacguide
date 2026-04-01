@@ -56,15 +56,15 @@ const ServiceDetail = () => {
               <div className="lg:col-span-2 space-y-8">
                 <div className="p-7 rounded-xl bg-white border border-border shadow-sm">
                   <h2 className="text-2xl font-bold text-primary mb-4">What is this service?</h2>
-                  <p className="text-muted-foreground leading-[1.75] text-lg">{service.description}</p>
+                  <p className="text-foreground leading-[1.75] text-lg">{service.description}</p>
                 </div>
 
-                <div className="p-7 rounded-xl bg-blush border border-coral/20">
+                <div className="p-7 rounded-xl bg-blush border border-border">
                   <div className="flex items-center gap-2 mb-3">
                     <MapPin className="w-5 h-5 text-accent" />
                     <h3 className="font-bold text-primary">Why it matters on Cape Cod</h3>
                   </div>
-                  <p className="text-muted-foreground leading-[1.75]">{service.whyCapeCod}</p>
+                  <p className="text-foreground leading-[1.75]">{service.whyCapeCod}</p>
                 </div>
 
                 <div className="p-7 rounded-xl bg-white border border-border shadow-sm">
@@ -73,19 +73,19 @@ const ServiceDetail = () => {
                     {service.warningSigns.map((sign, i) => (
                       <li key={i} className="flex items-start gap-3 p-3 rounded-lg bg-blush">
                         <AlertTriangle className="w-5 h-5 text-coral flex-shrink-0 mt-0.5" />
-                        <span className="text-muted-foreground">{sign}</span>
+                        <span className="text-foreground">{sign}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="p-7 rounded-xl bg-yellow-accent/30 border border-yellow-accent">
+                <div className="p-7 rounded-xl bg-yellow-accent/30 border border-border">
                   <div className="flex items-center gap-2 mb-2">
                     <DollarSign className="w-5 h-5 text-primary" />
                     <h3 className="font-bold text-primary">Typical Cost Range</h3>
                   </div>
                   <p className="text-3xl font-bold text-primary mb-1">{service.costRange}</p>
-                  <p className="text-sm text-muted-foreground">Costs vary based on home size, system complexity, and location on Cape Cod.</p>
+                  <p className="text-sm text-foreground">Costs vary based on home size, system complexity, and location on Cape Cod.</p>
                 </div>
               </div>
 

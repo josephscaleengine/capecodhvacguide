@@ -112,7 +112,7 @@ const Blog = () => {
                         <h2 className="font-bold text-lg text-primary mb-2 group-hover:text-accent transition-colors line-clamp-2 leading-snug">
                           {article.title}
                         </h2>
-                        <p className="text-sm text-muted-foreground mb-4 line-clamp-3 flex-grow leading-relaxed">
+                        <p className="text-sm text-foreground mb-4 line-clamp-3 flex-grow leading-relaxed">
                           {article.description}
                         </p>
                         <div className="flex items-center justify-between pt-4 border-t border-border mt-auto">

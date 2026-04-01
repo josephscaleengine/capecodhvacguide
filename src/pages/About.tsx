@@ -24,7 +24,7 @@ const About = () => {
             <div className="grid lg:grid-cols-2 gap-16 items-start max-w-6xl mx-auto">
               <div>
                 <h2 className="text-3xl font-bold text-primary mb-6">Our Mission</h2>
-                <div className="space-y-5 text-muted-foreground text-lg leading-relaxed">
+                <div className="space-y-5 text-foreground text-lg leading-relaxed">
                   <p>
                     Cape Cod presents unique challenges for homeowners — from historic properties with aging HVAC systems to coastal homes affected by salt air and harsh winters. We created this resource to help local homeowners navigate these challenges.
                   </p>
@@ -46,7 +46,7 @@ const About = () => {
                       <item.icon className="w-6 h-6 text-accent" />
                     </div>
                     <h3 className="font-bold text-primary mb-1">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground">{item.desc}</p>
+                    <p className="text-sm text-foreground">{item.desc}</p>
                   </div>
                 ))}
               </div>
