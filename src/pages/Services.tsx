@@ -48,7 +48,7 @@ const Services = () => {
                     <h2 className="font-bold text-lg text-primary mb-2 group-hover:text-accent transition-colors">
                       {svc.name}
                     </h2>
-                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
+                    <p className="text-sm text-foreground mb-4 leading-relaxed">
                       {svc.shortDescription}
                     </p>
                     <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
