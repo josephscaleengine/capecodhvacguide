@@ -108,8 +108,8 @@ const ArticleSectionRenderer = ({ content, enhancements }: ArticleSectionRendere
         const bg = bgPatterns[index % bgPatterns.length];
         return (
           <div key={index}>
-            <section className={`py-10 md:py-12 ${bg}`}>
-              <div className="container mx-auto px-4 max-w-[720px]">
+            <section className={`py-10 md:py-12 ${bg} rounded-xl my-2`}>
+              <div className="px-6 md:px-8 max-w-[720px]">
                 {section.heading && (
                   <h2 className="text-2xl md:text-3xl font-bold text-primary mb-6 pb-4 border-b border-border leading-tight">
                     {section.heading}
