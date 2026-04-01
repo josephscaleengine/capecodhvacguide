@@ -75,7 +75,7 @@ const BlogArticle = () => {
                         );
                       }
                       return (
-                        <p className="text-muted-foreground leading-[1.75] mb-6 text-base md:text-[17px]">
+                        <p className="text-foreground leading-[1.75] mb-6 text-base md:text-[17px]">
                           {children}
                         </p>
                       );
