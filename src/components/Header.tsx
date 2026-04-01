@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
-import { Menu, X, Thermometer } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import siteIcon from "@/assets/site-icon.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
