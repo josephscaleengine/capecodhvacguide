@@ -329,42 +329,43 @@ const Index = () => {
         </section>
 
         {/* ===== PARTNER CARD ===== */}
-        <section id="partner" className="py-20 bg-blush">
+        <section id="partner" className="py-16 bg-blush">
           <div className="container mx-auto px-4">
-            <div className="max-w-[900px] mx-auto">
-              <div className="p-7 rounded-xl bg-navy text-white shadow-lg text-center">
-                <img src={bluePacificLogo} alt="Blue Pacific Cape Cod" className="w-16 h-16 rounded-full object-cover mx-auto mb-3" />
-                <p className="text-xs font-bold uppercase tracking-[0.15em] text-white/50 mb-1">Our Recommended Partner</p>
-                <h2 className="text-xl font-bold text-white mb-3">Blue Pacific Cape Cod</h2>
-                <p className="text-white/70 text-sm leading-relaxed mb-5 max-w-lg mx-auto">
-                  Licensed, insured, and serving Cape Cod since 2001 — they're the team we trust and refer our readers to.
-                </p>
-                <div className="flex flex-col items-center gap-2 text-sm text-white/60 mb-5">
-                  <div className="flex items-center gap-2"><MapPin className="w-4 h-4 text-accent" /> Falmouth, MA</div>
-                  <div className="flex items-center gap-2"><Phone className="w-4 h-4 text-accent" /> (508) 274-9939</div>
-                  <div className="flex items-center gap-2"><Mail className="w-4 h-4 text-accent" /> BluePacificCapeCod@gmail.com</div>
+            <div className="max-w-4xl mx-auto p-8 md:p-12 rounded-2xl bg-navy text-white">
+              <div className="flex items-center gap-4 mb-4">
+                <img src={bluePacificLogo} alt="Blue Pacific Cape Cod" className="w-14 h-14 rounded-full object-cover" />
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[0.15em] text-white/50 mb-0.5">Our Recommended Partner</p>
+                  <h2 className="text-2xl md:text-3xl font-bold text-white">Professional HVAC Services</h2>
                 </div>
-                <div className="flex flex-wrap justify-center gap-2 mb-6">
-                  {[
-                    { icon: Shield, text: "Licensed & Insured" },
-                    { icon: Award, text: "20+ Years Experience" },
-                    { icon: AlertTriangle, text: "Emergency Services" },
-                  ].map((badge) => (
-                    <span key={badge.text} className="flex items-center gap-2 text-xs px-3 py-1.5 rounded-full bg-peach/30 text-peach font-medium">
-                      <badge.icon className="w-3.5 h-3.5" />
-                      {badge.text}
-                    </span>
-                  ))}
-                </div>
-                <a
-                  href="https://bluepacificcapecod.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-coral text-white font-bold btn-pop text-sm"
-                >
-                  Visit Blue Pacific Cape Cod <ArrowRight className="w-4 h-4" />
-                </a>
               </div>
+              <p className="text-white/70 mb-6 max-w-xl leading-relaxed">
+                While we provide educational resources, sometimes you need hands-on help from a licensed professional. Blue Pacific Cape Cod offers trusted HVAC and heating services throughout the Cape.
+              </p>
+              <div className="flex flex-wrap gap-5 mb-8">
+                {[
+                  { icon: Shield, text: "Licensed & Insured" },
+                  { icon: Award, text: "20+ Years Experience" },
+                  { icon: AlertTriangle, text: "Emergency Services" },
+                ].map((b) => (
+                  <span key={b.text} className="flex items-center gap-2 text-sm text-white/60">
+                    <b.icon className="w-4 h-4 text-peach" /> {b.text}
+                  </span>
+                ))}
+              </div>
+              <div className="flex flex-wrap gap-4 mb-8 text-sm text-white/50">
+                <span className="flex items-center gap-1.5"><MapPin className="w-4 h-4" /> Falmouth, MA</span>
+                <span className="flex items-center gap-1.5"><Phone className="w-4 h-4" /> (508) 274-9939</span>
+                <span className="flex items-center gap-1.5"><Mail className="w-4 h-4" /> BluePacificCapeCod@gmail.com</span>
+              </div>
+              <a
+                href="https://bluepacificcapecod.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-coral text-white font-bold btn-pop"
+              >
+                Visit Blue Pacific Cape Cod <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
           </div>
         </section>
