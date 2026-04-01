@@ -44,7 +44,7 @@ const Category = () => {
                     <Link
                       key={article.slug}
                       to={`/resources/${article.slug}`}
-                      className="group flex flex-col p-6 rounded-xl bg-white border border-border card-hover"
+                      className="group flex flex-col p-6 rounded-xl bg-white border border-border shadow-sm card-hover"
                     >
                       <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold w-fit mb-4 ${colorClass}`}>
                         <AIcon className="w-3.5 h-3.5" />

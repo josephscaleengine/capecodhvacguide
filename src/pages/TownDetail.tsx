@@ -1,8 +1,9 @@
 import { useParams, Link, Navigate } from "react-router-dom";
-import { MapPin, Clock, ArrowRight, ArrowLeft } from "lucide-react";
+import { MapPin, Clock, ArrowRight, ArrowLeft, Phone, Mail, Shield } from "lucide-react";
 import { getTownBySlug, towns } from "@/data/towns";
 import { getArticlesByTown, articles } from "@/data/articles";
 import { getCategoryIcon, categoryColors } from "@/lib/categoryIcons";
+import bluePacificLogo from "@/assets/blue-pacific-logo.png";
 
 const TownDetail = () => {
   const { townSlug } = useParams<{ townSlug: string }>();
@@ -47,7 +48,7 @@ const TownDetail = () => {
                       <Link
                         key={article.slug}
                         to={`/resources/${article.slug}`}
-                        className="group flex flex-col p-6 rounded-xl bg-white border border-border card-hover"
+                        className="group flex flex-col p-6 rounded-xl bg-white border border-border shadow-sm card-hover"
                       >
                         <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold w-fit mb-3 ${colorClass}`}>
                           <Icon className="w-3.5 h-3.5" />
@@ -70,35 +71,57 @@ const TownDetail = () => {
               </div>
 
               {/* Sidebar */}
-              <div className="space-y-8">
-                <div className="p-7 rounded-xl bg-coral text-white">
-                  <h3 className="font-bold text-xl mb-3">Need HVAC Service in {town.name}?</h3>
-                  <p className="text-white/80 mb-5 text-sm leading-relaxed">
-                    Blue Pacific Cape Cod offers professional HVAC services in {town.name} and throughout Cape Cod.
-                  </p>
-                  <a
-                    href="https://bluepacificcapecod.com/plumbing-falmouth-ma/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 w-full px-5 py-2.5 rounded-full bg-white text-primary font-bold btn-pop text-sm"
-                  >
-                    Contact Blue Pacific <ArrowRight className="w-4 h-4" />
-                  </a>
-                </div>
+              <div>
+                <div className="lg:sticky lg:top-24 space-y-6">
+                  <div className="p-7 rounded-xl bg-coral text-white shadow-md">
+                    <h3 className="font-bold text-xl mb-3">Need HVAC Service in {town.name}?</h3>
+                    <p className="text-white/80 mb-5 text-sm leading-relaxed">
+                      Blue Pacific Cape Cod offers professional HVAC services in {town.name} and throughout Cape Cod.
+                    </p>
+                    <a
+                      href="https://bluepacificcapecod.com/plumbing-falmouth-ma/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 w-full px-5 py-2.5 rounded-full bg-white text-primary font-bold btn-pop text-sm"
+                    >
+                      Contact Blue Pacific <ArrowRight className="w-4 h-4" />
+                    </a>
+                  </div>
 
-                <div className="p-7 rounded-xl bg-blush border border-border">
-                  <h3 className="font-bold text-primary mb-5">Other Towns</h3>
-                  <div className="space-y-3">
-                    {towns.filter((t) => t.slug !== town.slug).map((t) => (
-                      <Link
-                        key={t.slug}
-                        to={`/towns/${t.slug}`}
-                        className="flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors py-1"
-                      >
-                        <MapPin className="w-3.5 h-3.5 text-accent flex-shrink-0" />
-                        <span className="font-medium">{t.name}</span>
-                      </Link>
-                    ))}
+                  <div className="p-6 rounded-xl bg-navy text-white shadow-md">
+                    <div className="flex items-center gap-3 mb-4">
+                      <img src={bluePacificLogo} alt="Blue Pacific" className="w-10 h-10 rounded-full object-cover bg-white p-0.5" />
+                      <div className="flex items-center gap-1.5">
+                        <Shield className="w-4 h-4 text-peach" />
+                        <span className="font-bold text-sm">Blue Pacific Cape Cod</span>
+                      </div>
+                    </div>
+                    <div className="space-y-2 text-sm text-white/60 mb-4">
+                      <div className="flex items-center gap-2"><MapPin className="w-3.5 h-3.5" /> Falmouth, MA</div>
+                      <div className="flex items-center gap-2"><Phone className="w-3.5 h-3.5" /> (508) 274-9939</div>
+                      <div className="flex items-center gap-2"><Mail className="w-3.5 h-3.5" /> BluePacificCapeCod@gmail.com</div>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {["Licensed & Insured", "20+ Years", "Emergency"].map(b => (
+                        <span key={b} className="text-xs px-2.5 py-1 rounded-full bg-peach/30 text-peach font-medium">{b}</span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="p-7 rounded-xl bg-blush border border-border">
+                    <h3 className="font-bold text-primary mb-5">Other Towns</h3>
+                    <div className="space-y-3">
+                      {towns.filter((t) => t.slug !== town.slug).map((t) => (
+                        <Link
+                          key={t.slug}
+                          to={`/towns/${t.slug}`}
+                          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors py-1"
+                        >
+                          <MapPin className="w-3.5 h-3.5 text-accent flex-shrink-0" />
+                          <span className="font-medium">{t.name}</span>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>

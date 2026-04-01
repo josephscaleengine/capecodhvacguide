@@ -2,9 +2,10 @@ import { useParams, Link, Navigate } from "react-router-dom";
 import {
   Zap, Flame, Wind, Snowflake, Gauge, Fan, Thermometer,
   ClipboardCheck, AlertTriangle, ArrowLeft,
-  ArrowRight, DollarSign, MapPin, Shield, Award, Phone, Mail
+  ArrowRight, DollarSign, MapPin, Shield, Phone, Mail
 } from "lucide-react";
 import { getServiceBySlug, services } from "@/data/services";
+import bluePacificLogo from "@/assets/blue-pacific-logo.png";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Zap, Flame, Wind, Snowflake, Gauge, Fan, Thermometer,
@@ -86,31 +87,34 @@ const ServiceDetail = () => {
               </div>
 
               {/* Sidebar */}
-              <div className="space-y-8">
-                <div className="p-7 rounded-xl bg-coral text-white sticky top-24">
-                  <h3 className="font-bold text-xl mb-3">
-                    {isBluePacificService ? "Need This Service?" : "Looking for Help?"}
-                  </h3>
-                  <p className="text-white/80 mb-5 text-sm leading-relaxed">
-                    {isBluePacificService
-                      ? "Blue Pacific Cape Cod offers professional " + service.name.toLowerCase() + " throughout Cape Cod."
-                      : "Contact a local HVAC professional for this service. Blue Pacific Cape Cod can help connect you with the right provider."}
-                  </p>
-                  <a
-                    href="https://bluepacificcapecod.com/plumbing-falmouth-ma/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 w-full justify-center px-6 py-3 rounded-full bg-white text-primary font-bold btn-pop text-sm"
-                  >
-                    {isBluePacificService ? "Contact Blue Pacific" : "Get Help"} <ArrowRight className="w-4 h-4" />
-                  </a>
-                </div>
+              <div>
+                <div className="lg:sticky lg:top-24 space-y-6">
+                  <div className="p-7 rounded-xl bg-coral text-white shadow-md">
+                    <h3 className="font-bold text-xl mb-3">
+                      {isBluePacificService ? "Need This Service?" : "Looking for Help?"}
+                    </h3>
+                    <p className="text-white/80 mb-5 text-sm leading-relaxed">
+                      {isBluePacificService
+                        ? "Blue Pacific Cape Cod offers professional " + service.name.toLowerCase() + " throughout Cape Cod."
+                        : "Contact a local HVAC professional for this service. Blue Pacific Cape Cod can help connect you with the right provider."}
+                    </p>
+                    <a
+                      href="https://bluepacificcapecod.com/plumbing-falmouth-ma/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 w-full justify-center px-6 py-3 rounded-full bg-white text-primary font-bold btn-pop text-sm"
+                    >
+                      {isBluePacificService ? "Contact Blue Pacific" : "Get Help"} <ArrowRight className="w-4 h-4" />
+                    </a>
+                  </div>
 
-                {isBluePacificService && (
-                  <div className="p-6 rounded-xl bg-navy text-white">
+                  <div className="p-6 rounded-xl bg-navy text-white shadow-md">
                     <div className="flex items-center gap-3 mb-4">
-                      <Shield className="w-5 h-5 text-peach" />
-                      <span className="font-bold">Blue Pacific Cape Cod</span>
+                      <img src={bluePacificLogo} alt="Blue Pacific" className="w-10 h-10 rounded-full object-cover bg-white p-0.5" />
+                      <div className="flex items-center gap-1.5">
+                        <Shield className="w-4 h-4 text-peach" />
+                        <span className="font-bold text-sm">Blue Pacific Cape Cod</span>
+                      </div>
                     </div>
                     <div className="space-y-2 text-sm text-white/60 mb-4">
                       <div className="flex items-center gap-2"><MapPin className="w-3.5 h-3.5" /> Falmouth, MA</div>
@@ -123,25 +127,24 @@ const ServiceDetail = () => {
                       ))}
                     </div>
                   </div>
-                )}
 
-                <div className="p-7 rounded-xl bg-white border border-border shadow-sm">
-                  <h3 className="font-bold text-primary mb-5">Other Services</h3>
-                  <div className="space-y-1">
-                    {otherServices.map((svc) => {
-                      const SvcIcon = iconMap[svc.icon] || Thermometer;
-                      return (
-                        <Link
-                          key={svc.slug}
-                          to={`/services/${svc.slug}`}
-                          className="flex items-center gap-3 py-3 px-3 rounded-lg text-muted-foreground hover:text-accent hover:bg-blush transition-all"
-                        >
-                          <SvcIcon className="w-4 h-4 text-accent flex-shrink-0" />
-                          <span className="text-sm font-medium flex-1">{svc.name}</span>
-                          <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100" />
-                        </Link>
-                      );
-                    })}
+                  <div className="p-7 rounded-xl bg-white border border-border shadow-sm">
+                    <h3 className="font-bold text-primary mb-5">Other Services</h3>
+                    <div className="space-y-1">
+                      {otherServices.map((svc) => {
+                        const SvcIcon = iconMap[svc.icon] || Thermometer;
+                        return (
+                          <Link
+                            key={svc.slug}
+                            to={`/services/${svc.slug}`}
+                            className="flex items-center gap-3 py-3 px-3 rounded-lg text-muted-foreground hover:text-accent hover:bg-blush transition-all"
+                          >
+                            <SvcIcon className="w-4 h-4 text-accent flex-shrink-0" />
+                            <span className="text-sm font-medium flex-1">{svc.name}</span>
+                          </Link>
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
               </div>
