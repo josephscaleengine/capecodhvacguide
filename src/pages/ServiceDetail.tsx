@@ -33,7 +33,6 @@ const ServiceDetail = () => {
     <div className="min-h-screen page-fade-in">
       <Header />
       <main>
-        {/* Hero */}
         <section className="pt-28 pb-16 bg-navy">
           <div className="container mx-auto px-4">
             <Link to="/services" className="inline-flex items-center gap-2 text-white/50 hover:text-white text-sm mb-6 transition-colors">
@@ -51,30 +50,28 @@ const ServiceDetail = () => {
           </div>
         </section>
 
-        {/* Content */}
         <section className="py-20">
           <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-3 gap-12">
-              {/* Main */}
-              <div className="lg:col-span-2 space-y-10">
-                <div>
+            <div className="grid lg:grid-cols-3 gap-10">
+              <div className="lg:col-span-2 space-y-8">
+                <div className="p-7 rounded-xl bg-white border border-border shadow-sm">
                   <h2 className="text-2xl font-bold text-primary mb-4">What is this service?</h2>
-                  <p className="text-muted-foreground leading-relaxed text-lg">{service.description}</p>
+                  <p className="text-muted-foreground leading-[1.75] text-lg">{service.description}</p>
                 </div>
 
-                <div className="p-6 rounded-xl bg-blush border border-coral/20">
+                <div className="p-7 rounded-xl bg-blush border border-coral/20">
                   <div className="flex items-center gap-2 mb-3">
                     <MapPin className="w-5 h-5 text-accent" />
                     <h3 className="font-bold text-primary">Why it matters on Cape Cod</h3>
                   </div>
-                  <p className="text-muted-foreground leading-relaxed">{service.whyCapeCod}</p>
+                  <p className="text-muted-foreground leading-[1.75]">{service.whyCapeCod}</p>
                 </div>
 
-                <div className="p-6 rounded-xl bg-white border border-border">
+                <div className="p-7 rounded-xl bg-white border border-border shadow-sm">
                   <h2 className="text-2xl font-bold text-primary mb-5">Warning signs you need this service</h2>
                   <ul className="space-y-3">
                     {service.warningSigns.map((sign, i) => (
-                      <li key={i} className="flex items-start gap-3">
+                      <li key={i} className="flex items-start gap-3 p-3 rounded-lg bg-blush">
                         <AlertTriangle className="w-5 h-5 text-coral flex-shrink-0 mt-0.5" />
                         <span className="text-muted-foreground">{sign}</span>
                       </li>
@@ -82,7 +79,7 @@ const ServiceDetail = () => {
                   </ul>
                 </div>
 
-                <div className="p-6 rounded-xl bg-yellow-accent/40 border border-yellow-accent">
+                <div className="p-7 rounded-xl bg-yellow-accent/30 border border-yellow-accent">
                   <div className="flex items-center gap-2 mb-2">
                     <DollarSign className="w-5 h-5 text-primary" />
                     <h3 className="font-bold text-primary">Typical Cost Range</h3>
@@ -94,8 +91,7 @@ const ServiceDetail = () => {
 
               {/* Sidebar */}
               <div className="space-y-8">
-                {/* CTA */}
-                <div className="p-7 rounded-xl bg-coral text-white">
+                <div className="p-7 rounded-xl bg-coral text-white sticky top-24">
                   <h3 className="font-bold text-xl mb-3">
                     {isBluePacificService ? "Need This Service?" : "Looking for Help?"}
                   </h3>
@@ -114,7 +110,6 @@ const ServiceDetail = () => {
                   </a>
                 </div>
 
-                {/* Partner Info - only for BP services */}
                 {isBluePacificService && (
                   <div className="p-6 rounded-xl bg-navy text-white">
                     <div className="flex items-center gap-3 mb-4">
@@ -128,26 +123,26 @@ const ServiceDetail = () => {
                     </div>
                     <div className="flex flex-wrap gap-2">
                       {["Licensed & Insured", "20+ Years", "Emergency"].map(b => (
-                        <span key={b} className="text-xs px-2.5 py-1 rounded-full bg-white/10 text-white/70">{b}</span>
+                        <span key={b} className="text-xs px-2.5 py-1 rounded-full bg-peach/30 text-peach font-medium">{b}</span>
                       ))}
                     </div>
                   </div>
                 )}
 
-                {/* Other Services */}
-                <div className="p-7 rounded-xl bg-white border border-border">
+                <div className="p-7 rounded-xl bg-white border border-border shadow-sm">
                   <h3 className="font-bold text-primary mb-5">Other Services</h3>
-                  <div className="space-y-2">
+                  <div className="space-y-1">
                     {otherServices.map((svc) => {
                       const SvcIcon = iconMap[svc.icon] || Thermometer;
                       return (
                         <Link
                           key={svc.slug}
                           to={`/services/${svc.slug}`}
-                          className="flex items-center gap-3 py-2.5 px-3 rounded-lg text-muted-foreground hover:text-accent hover:bg-blush transition-all"
+                          className="flex items-center gap-3 py-3 px-3 rounded-lg text-muted-foreground hover:text-accent hover:bg-blush transition-all"
                         >
                           <SvcIcon className="w-4 h-4 text-accent flex-shrink-0" />
-                          <span className="text-sm font-medium">{svc.name}</span>
+                          <span className="text-sm font-medium flex-1">{svc.name}</span>
+                          <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100" />
                         </Link>
                       );
                     })}

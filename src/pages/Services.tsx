@@ -17,7 +17,6 @@ const Services = () => {
     <div className="min-h-screen page-fade-in">
       <Header />
       <main>
-        {/* Hero */}
         <section className="pt-28 pb-16 bg-navy">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-2 mb-4">
@@ -31,22 +30,20 @@ const Services = () => {
           </div>
         </section>
 
-        {/* Services Grid */}
         <section className="py-20 bg-blush">
           <div className="container mx-auto px-4">
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {services.map((svc, i) => {
                 const Icon = iconMap[svc.icon] || Thermometer;
+                const isCoralIcon = i % 2 === 1;
                 return (
                   <Link
                     key={svc.slug}
                     to={`/services/${svc.slug}`}
-                    className={`group p-7 rounded-xl border border-border card-hover ${
-                      i % 2 === 0 ? "bg-white" : "bg-white"
-                    }`}
+                    className="group p-7 rounded-xl bg-white border border-border card-hover border-l-4 border-l-coral/60"
                   >
-                    <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-5">
-                      <Icon className="w-6 h-6 text-accent" />
+                    <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-5 ${isCoralIcon ? "bg-coral/15" : "bg-accent/10"}`}>
+                      <Icon className={`w-6 h-6 ${isCoralIcon ? "text-coral" : "text-accent"}`} />
                     </div>
                     <h2 className="font-bold text-lg text-primary mb-2 group-hover:text-accent transition-colors">
                       {svc.name}
