@@ -282,7 +282,7 @@ const Index = () => {
         <section className="py-20 bg-blush">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-primary mb-3">Common HVAC Services</h2>
-            <p className="text-foreground mb-10">Learn about heating and cooling services available on Cape Cod.</p>
+            <p className="text-foreground mb-10 text-left">Learn about heating and cooling services available on Cape Cod.</p>
             <div className="grid sm:grid-cols-2 gap-4">
               {servicesList.map((svc, i) => {
                 const SvcIcon = serviceIcons[svc.icon] || Thermometer;
