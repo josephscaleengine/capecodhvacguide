@@ -26,7 +26,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
-        <div className="max-w-[1400px] mx-auto shadow-sm min-h-screen bg-background">
+        <div className="min-h-screen bg-background">
           <Header />
           <main className="min-h-[60vh]">
             <Routes>
