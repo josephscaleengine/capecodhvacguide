@@ -15,16 +15,6 @@ const categories = [
   { name: "Energy Efficiency", slug: "energy-efficiency" },
 ];
 
-const categories = [
-  { name: "Seasonal Tips", slug: "seasonal" },
-  { name: "Emergency Guides", slug: "emergency" },
-  { name: "Coastal Living", slug: "coastal" },
-  { name: "Older Homes", slug: "older-homes" },
-  { name: "Heat Pumps", slug: "heat-pumps" },
-  { name: "Cost Guides", slug: "cost-guides" },
-  { name: "Maintenance", slug: "maintenance" },
-  { name: "Energy Efficiency", slug: "energy-efficiency" },
-];
 
 const Footer = () => {
   return (
