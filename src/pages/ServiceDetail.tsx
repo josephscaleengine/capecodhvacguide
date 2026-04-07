@@ -31,6 +31,15 @@ const ServiceDetail = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{service.name} on Cape Cod | Cape Cod HVAC Guide</title>
+        <meta name="description" content={`Learn about ${service.name} for Cape Cod homeowners. ${service.shortDescription} Serving Falmouth, Hyannis, Barnstable, and all of Cape Cod.`} />
+        <link rel="canonical" href={`https://capecodhvacguide.com/services/${service.slug}`} />
+        <meta property="og:title" content={`${service.name} on Cape Cod | Cape Cod HVAC Guide`} />
+        <meta property="og:description" content={`Learn about ${service.name} for Cape Cod homeowners. ${service.shortDescription}`} />
+        <meta property="og:url" content={`https://capecodhvacguide.com/services/${service.slug}`} />
+        <script type="application/ld+json">{JSON.stringify({"@context":"https://schema.org","@type":"Service","name":service.name,"description":service.description,"provider":{"@type":"LocalBusiness","name":"Blue Pacific Cape Cod","telephone":"(508) 274-9939","address":{"@type":"PostalAddress","addressLocality":"Falmouth","addressRegion":"MA"}},"areaServed":{"@type":"Place","name":"Cape Cod, Massachusetts"}})}</script>
+      </Helmet>
         <section className="pt-28 pb-16 bg-navy">
           <div className="container mx-auto px-4">
             <Link to="/services" className="inline-flex items-center gap-2 text-white/50 hover:text-white text-sm mb-6 transition-colors">

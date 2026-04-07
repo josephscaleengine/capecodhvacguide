@@ -17,6 +17,15 @@ const TownDetail = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{town.name} HVAC Guide | Heating &amp; Cooling Tips for {town.name}, Cape Cod</title>
+        <meta name="description" content={`HVAC resources for ${town.name} homeowners on Cape Cod. Local tips on heat pumps, seasonal maintenance, and finding trusted contractors in ${town.name}, MA.`} />
+        <link rel="canonical" href={`https://capecodhvacguide.com/towns/${town.slug}`} />
+        <meta property="og:title" content={`${town.name} HVAC Guide | Heating & Cooling Tips for ${town.name}, Cape Cod`} />
+        <meta property="og:description" content={`HVAC resources for ${town.name} homeowners on Cape Cod.`} />
+        <meta property="og:url" content={`https://capecodhvacguide.com/towns/${town.slug}`} />
+        <script type="application/ld+json">{JSON.stringify({"@context":"https://schema.org","@type":"WebPage","name":`${town.name} HVAC Guide`,"description":`HVAC resources for ${town.name} homeowners on Cape Cod.`})}</script>
+      </Helmet>
         {/* Hero */}
         <section className="relative pt-28 pb-16 min-h-[400px] flex items-end overflow-hidden">
           <img src={town.image} alt={`${town.name}, Cape Cod`} className="absolute inset-0 w-full h-full object-cover" />

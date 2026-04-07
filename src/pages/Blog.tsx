@@ -16,6 +16,11 @@ const Blog = () => {
 
   return (
     <>
+      <Helmet>
+        <title>HVAC Resources &amp; Guides for Cape Cod Homeowners | Cape Cod HVAC Guide</title>
+        <meta name="description" content="Browse free HVAC guides for Cape Cod homeowners — heat pumps, seasonal maintenance, cost guides, energy efficiency, and more." />
+        <link rel="canonical" href="https://capecodhvacguide.com/resources" />
+      </Helmet>
         <section className="pt-28 pb-16 bg-navy">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-2 mb-4">

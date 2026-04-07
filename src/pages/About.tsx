@@ -5,6 +5,12 @@ import { Link } from "react-router-dom";
 const About = () => {
   return (
     <>
+      <Helmet>
+        <title>About Cape Cod HVAC Guide | Local Heating &amp; Cooling Resources</title>
+        <meta name="description" content="Cape Cod HVAC Guide provides free, trusted heating and cooling resources for Cape Cod homeowners. Learn about our mission and our recommended HVAC partner." />
+        <link rel="canonical" href="https://capecodhvacguide.com/about" />
+        <script type="application/ld+json">{JSON.stringify({"@context":"https://schema.org","@type":"Organization","name":"Cape Cod HVAC Guide","url":"https://capecodhvacguide.com","description":"Free HVAC resource for Cape Cod homeowners","areaServed":"Cape Cod, Massachusetts"})}</script>
+      </Helmet>
         {/* Hero */}
         <section className="pt-28 pb-16 bg-navy">
           <div className="container mx-auto px-4 text-center">
