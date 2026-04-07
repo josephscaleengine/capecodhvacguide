@@ -7,7 +7,6 @@ import ScrollToTop from "@/components/ScrollToTop";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Index from "./pages/Index";
-import Towns from "./pages/Towns";
 import TownDetail from "./pages/TownDetail";
 import Blog from "./pages/Blog";
 import BlogArticle from "./pages/BlogArticle";
@@ -31,7 +30,6 @@ const App = () => (
           <main className="min-h-[60vh]">
             <Routes>
               <Route path="/" element={<Index />} />
-              <Route path="/towns" element={<Towns />} />
               <Route path="/towns/:townSlug" element={<TownDetail />} />
               <Route path="/resources" element={<Blog />} />
               <Route path="/resources/:articleSlug" element={<BlogArticle />} />

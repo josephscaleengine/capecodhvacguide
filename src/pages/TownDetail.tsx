@@ -11,7 +11,7 @@ const TownDetail = () => {
   const town = getTownBySlug(townSlug || "");
   const townArticles = getArticlesByTown(townSlug || "");
 
-  if (!town) return <Navigate to="/towns" replace />;
+  if (!town) return <Navigate to="/" replace />;
 
   const displayArticles = townArticles.length > 0 ? townArticles : articles.slice(0, 3);
 
@@ -31,8 +31,8 @@ const TownDetail = () => {
           <img src={town.image} alt={`${town.name}, Cape Cod`} className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/70 to-navy/30" />
           <div className="container mx-auto px-4 relative z-10 pb-6">
-            <Link to="/towns" className="inline-flex items-center gap-2 text-white/50 hover:text-white text-sm mb-4 transition-colors">
-              <ArrowLeft className="w-4 h-4" /> All Towns
+            <Link to="/" className="inline-flex items-center gap-2 text-white/50 hover:text-white text-sm mb-4 transition-colors">
+              <ArrowLeft className="w-4 h-4" /> Home
             </Link>
             <div className="flex items-center gap-2 mb-3">
               <MapPin className="w-5 h-5 text-peach" />
