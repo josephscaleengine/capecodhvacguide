@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import {
   MapPin, BookOpen, ShieldCheck, ArrowRight, Zap, Flame, Wind, Snowflake,
@@ -152,6 +153,12 @@ const Index = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Cape Cod HVAC Guide | Free Heating &amp; Cooling Resources for Cape Cod Homeowners</title>
+        <meta name="description" content="Free expert HVAC guides for Cape Cod homeowners. Tips on heat pumps, furnaces, mini-splits, and seasonal maintenance — covering every town from Falmouth to Provincetown." />
+        <link rel="canonical" href="https://capecodhvacguide.com/" />
+        <script type="application/ld+json">{JSON.stringify({"@context":"https://schema.org","@type":"Organization","name":"Cape Cod HVAC Guide","url":"https://capecodhvacguide.com","description":"Free HVAC resource for Cape Cod homeowners","areaServed":"Cape Cod, Massachusetts"})}</script>
+      </Helmet>
         {/* ===== HERO ===== */}
         <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
           <img src={HERO_IMAGE} alt="Cape Cod coastline" className="absolute inset-0 w-full h-full object-cover" />
@@ -312,13 +319,14 @@ const Index = () => {
             <p className="text-foreground mb-10">Resources for every Cape Cod community</p>
             <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
               {allTowns.map((town) => (
-                <div
+                <Link
                   key={town}
-                  className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-muted border border-border shadow-sm hover:bg-accent hover:text-white hover:border-accent transition-all cursor-default group"
+                  to={`/towns/${town.toLowerCase()}`}
+                  className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-muted border border-border shadow-sm hover:bg-accent hover:text-white hover:border-accent transition-all group"
                 >
                   <Home className="w-3.5 h-3.5 text-accent group-hover:text-white flex-shrink-0" />
                   <span className="text-sm font-medium text-primary group-hover:text-white">{town}</span>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

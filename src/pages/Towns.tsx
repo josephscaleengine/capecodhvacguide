@@ -1,10 +1,16 @@
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { MapPin, ArrowRight } from "lucide-react";
 import { towns } from "@/data/towns";
 
 const Towns = () => {
   return (
     <>
+      <Helmet>
+        <title>HVAC Resources by Cape Cod Town | Cape Cod HVAC Guide</title>
+        <meta name="description" content="Find local HVAC tips and resources for your Cape Cod town — from Falmouth and Hyannis to Provincetown and Chatham." />
+        <link rel="canonical" href="https://capecodhvacguide.com/towns" />
+      </Helmet>
         {/* Hero */}
         <section className="pt-28 pb-16 bg-navy">
           <div className="container mx-auto px-4">

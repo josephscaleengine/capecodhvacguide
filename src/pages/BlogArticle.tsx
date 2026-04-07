@@ -1,4 +1,5 @@
 import { useParams, Link, Navigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { ArrowLeft, Clock, Calendar, ArrowRight, MapPin, Phone, Mail, Shield } from "lucide-react";
 import { getArticleBySlug, articles } from "@/data/articles";
 import { getCategoryIcon, categoryColors } from "@/lib/categoryIcons";
@@ -22,6 +23,16 @@ const BlogArticle = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{article.title} | Cape Cod HVAC Guide</title>
+        <meta name="description" content={article.description} />
+        <link rel="canonical" href={`https://capecodhvacguide.com/resources/${article.slug}`} />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={`${article.title} | Cape Cod HVAC Guide`} />
+        <meta property="og:description" content={article.description} />
+        <meta property="og:url" content={`https://capecodhvacguide.com/resources/${article.slug}`} />
+        <script type="application/ld+json">{JSON.stringify({"@context":"https://schema.org","@type":"Article","headline":article.title,"description":article.description,"datePublished":article.publishedDate,"author":{"@type":"Organization","name":"Cape Cod HVAC Guide"},"publisher":{"@type":"Organization","name":"Cape Cod HVAC Guide","url":"https://capecodhvacguide.com"},"mainEntityOfPage":`https://capecodhvacguide.com/resources/${article.slug}`})}</script>
+      </Helmet>
       {/* Hero */}
       <section className="pt-28 pb-12 bg-navy">
         <div className="container mx-auto px-4 max-w-5xl">

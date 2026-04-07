@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import {
   Zap, Flame, Wind, Snowflake, Gauge, Fan, Thermometer,
   ClipboardCheck, AlertTriangle, ArrowRight, Wrench
@@ -13,6 +14,11 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 const Services = () => {
   return (
     <>
+      <Helmet>
+        <title>HVAC Services on Cape Cod | Cape Cod HVAC Guide</title>
+        <meta name="description" content="Learn about heating and cooling services available to Cape Cod homeowners — heat pump installation, emergency heating repair, duct cleaning, and more." />
+        <link rel="canonical" href="https://capecodhvacguide.com/services" />
+      </Helmet>
         <section className="pt-28 pb-16 bg-navy">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-2 mb-4">

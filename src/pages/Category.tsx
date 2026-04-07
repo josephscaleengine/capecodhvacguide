@@ -1,4 +1,5 @@
 import { useParams, Link, Navigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { ArrowLeft, ArrowRight, Clock } from "lucide-react";
 import { getCategoryBySlug, getArticlesByCategory, categories } from "@/data/articles";
 import { getCategoryIcon, categoryColors } from "@/lib/categoryIcons";
@@ -14,6 +15,12 @@ const Category = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{category.name} HVAC Guides for Cape Cod | Cape Cod HVAC Guide</title>
+        <meta name="description" content={`Browse Cape Cod HVAC guides in the ${category.name} category. Trusted tips for Cape Cod homeowners.`} />
+        <link rel="canonical" href={`https://capecodhvacguide.com/resources/category/${category.slug}`} />
+        <script type="application/ld+json">{JSON.stringify({"@context":"https://schema.org","@type":"CollectionPage","name":`${category.name} HVAC Guides`,"url":`https://capecodhvacguide.com/resources/category/${category.slug}`,"description":category.description,"itemListElement":categoryArticles.map((a,i)=>({"@type":"ListItem","position":i+1,"url":`https://capecodhvacguide.com/resources/${a.slug}`,"name":a.title}))})}</script>
+      </Helmet>
         {/* Hero */}
         <section className="pt-28 pb-16 bg-navy">
           <div className="container mx-auto px-4">
