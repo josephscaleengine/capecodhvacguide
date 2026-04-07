@@ -19,7 +19,7 @@ const FeaturedResources = () => {
 
         <div className="grid md:grid-cols-2 gap-6">
           {featuredArticles.map((article) => (
-            <Link key={article.slug} to={`/blog/${article.slug}`}>
+            <Link key={article.slug} to={`/resources/${article.slug}`}>
               <ResourceCard
                 emoji={article.emoji}
                 category={article.category}
@@ -34,7 +34,7 @@ const FeaturedResources = () => {
 
         <div className="text-center mt-10">
           <Link
-            to="/blog"
+            to="/resources"
             className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
           >
             View All Resources

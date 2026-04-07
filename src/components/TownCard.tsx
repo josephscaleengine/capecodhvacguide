@@ -1,14 +1,17 @@
+import { Link } from "react-router-dom";
+
 interface TownCardProps {
   name: string;
   description: string;
   image: string;
   articleCount: number;
+  slug: string;
 }
 
-const TownCard = ({ name, description, image, articleCount }: TownCardProps) => {
+const TownCard = ({ name, description, image, articleCount, slug }: TownCardProps) => {
   return (
-    <a
-      href="#"
+    <Link
+      to={`/towns/${slug}`}
       className="group block rounded-xl overflow-hidden bg-card border border-border shadow-sm hover:shadow-lg transition-all duration-300"
     >
       {/* Image */}
@@ -34,7 +37,7 @@ const TownCard = ({ name, description, image, articleCount }: TownCardProps) => 
           <span className="text-lg">→</span>
         </span>
       </div>
-    </a>
+    </Link>
   );
 };
 

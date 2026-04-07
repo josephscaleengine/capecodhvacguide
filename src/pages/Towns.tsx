@@ -37,7 +37,7 @@ const Towns = () => {
                 >
                   <img
                     src={town.image}
-                    alt={`${town.name}, Cape Cod`}
+                    alt={`${town.name}, Cape Cod Massachusetts — HVAC resources`}
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/50 to-transparent" />
