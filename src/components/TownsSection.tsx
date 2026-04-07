@@ -18,14 +18,14 @@ const TownsSection = () => {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {towns.map((town) => (
-            <Link key={town.slug} to={`/towns/${town.slug}`}>
               <TownCard
+                key={town.slug}
                 name={town.name}
                 description={town.description}
                 image={town.image}
                 articleCount={town.articleCount}
+                slug={town.slug}
               />
-            </Link>
           ))}
         </div>
 
