@@ -1,4 +1,5 @@
 import { useParams, Link, Navigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { MapPin, Clock, ArrowRight, ArrowLeft, Phone, Mail, Shield } from "lucide-react";
 import { getTownBySlug, towns } from "@/data/towns";
 import { getArticlesByTown, articles } from "@/data/articles";

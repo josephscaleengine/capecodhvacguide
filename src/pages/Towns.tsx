@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { MapPin, ArrowRight } from "lucide-react";
 import { towns } from "@/data/towns";
 

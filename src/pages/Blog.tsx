@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { BookOpen, Clock, ArrowRight } from "lucide-react";
 import { articles, categories } from "@/data/articles";

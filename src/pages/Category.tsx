@@ -1,4 +1,5 @@
 import { useParams, Link, Navigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { ArrowLeft, ArrowRight, Clock } from "lucide-react";
 import { getCategoryBySlug, getArticlesByCategory, categories } from "@/data/articles";
 import { getCategoryIcon, categoryColors } from "@/lib/categoryIcons";

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import {
   MapPin, BookOpen, ShieldCheck, ArrowRight, Zap, Flame, Wind, Snowflake,
