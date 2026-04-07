@@ -152,6 +152,7 @@ const Index = () => {
   });
 
   return (
+    <>
       <Helmet>
         <title>Cape Cod HVAC Guide | Free Heating &amp; Cooling Resources for Cape Cod Homeowners</title>
         <meta name="description" content="Free expert HVAC guides for Cape Cod homeowners. Tips on heat pumps, furnaces, mini-splits, and seasonal maintenance — covering every town from Falmouth to Provincetown." />
