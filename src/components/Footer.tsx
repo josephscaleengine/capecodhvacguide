@@ -1,10 +1,18 @@
 import { Link } from "react-router-dom";
 import { Thermometer } from "lucide-react";
+import { towns as townData } from "@/data/towns";
 
-const towns = [
-  "Falmouth", "Mashpee", "Sandwich", "Bourne", "Osterville", "Hyannis",
-  "Barnstable", "Yarmouth", "Dennis", "Brewster", "Harwich", "Chatham",
-  "Orleans", "Eastham", "Wellfleet", "Truro", "Provincetown"
+const towns = townData.map(t => ({ name: t.name, slug: t.slug }));
+
+const categories = [
+  { name: "Seasonal Tips", slug: "seasonal" },
+  { name: "Emergency Guides", slug: "emergency" },
+  { name: "Coastal Living", slug: "coastal" },
+  { name: "Older Homes", slug: "older-homes" },
+  { name: "Heat Pumps", slug: "heat-pumps" },
+  { name: "Cost Guides", slug: "cost-guides" },
+  { name: "Maintenance", slug: "maintenance" },
+  { name: "Energy Efficiency", slug: "energy-efficiency" },
 ];
 
 const categories = [
@@ -41,7 +49,12 @@ const Footer = () => {
           <div>
             <h3 className="font-bold text-sm uppercase tracking-wider text-white/40 mb-4">Towns We Cover</h3>
             <p className="text-sm text-white/50 leading-loose">
-              {towns.join(" · ")}
+              {towns.map((t, i) => (
+                <span key={t.slug}>
+                  <Link to={`/towns/${t.slug}`} className="hover:text-white transition-colors">{t.name}</Link>
+                  {i < towns.length - 1 && " · "}
+                </span>
+              ))}
             </p>
           </div>
 
