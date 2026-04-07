@@ -1,5 +1,4 @@
 import TownCard from "./TownCard";
-import TownCard from "./TownCard";
 import { towns } from "@/data/towns";
 
 const TownsSection = () => {
